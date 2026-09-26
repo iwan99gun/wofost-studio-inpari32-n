@@ -6,6 +6,10 @@ version: 1.0.0
 date-released: "2026-09-26"
 license: MIT
 repository-code: "https://github.com/iwan99gun/wofost-studio-inpari32-n"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22969839"
+    description: "Archived snapshot of version 1.0.0 on Zenodo"
 keywords:
   - crop model
   - WOFOST
@@ -16,6 +20,6 @@ keywords:
   - sensitivity analysis
   - data assimilation
 authors:
-  - family-names: "[Isi nama keluarga Anda]"
-    given-names: "[Isi nama depan Anda]"
+  - family-names: "Gunawan"
+    given-names: "Iwan"
     # orcid: "https://orcid.org/0000-0000-0000-0000"

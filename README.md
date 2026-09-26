@@ -1,5 +1,7 @@
 # WOFOST Studio
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22969839.svg)](https://doi.org/10.5281/zenodo.22969839)
+
 A PySide6 desktop application wrapping [PCSE](https://github.com/ajwdewit/pcse) 6.0.13 / WOFOST for
 crop-model calibration, sensitivity analysis (Morris, Sobol, eFAST), Bayesian calibration (least squares
 and MCMC via `emcee`), ensemble Kalman filter data assimilation, climate-scenario runs, and
