@@ -1,0 +1,19 @@
+# Inti aplikasi WOFOST Studio (GUI PySide6 + PCSE-WOFOST)
+PySide6>=6.7
+pcse==6.0.13
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+PyYAML>=6.0
+
+# Analisis lanjutan (sensitivitas, kalibrasi Bayesian, asimilasi data)
+emcee>=3.1
+SALib>=1.4
+
+# Pembuatan naskah (DOCX/PDF) dari hasil analisis
+python-docx>=1.1
+pymupdf>=1.24
+
+# Opsional: konversi DOCX->PDF via Microsoft Word (naskah/buat_naskah.py), hanya Windows + Word terpasang
+pywin32>=306; sys_platform == "win32"

@@ -1,0 +1,309 @@
+{
+ "Wofost81_NWLP_CWB_CNB": {
+  "label": "WOFOST 8.1 standar",
+  "parameter": {
+   "NSOILBASE": 90.8414000074308,
+   "N_recovery": 0.5241944107855243
+  },
+  "SE": {
+   "NSOILBASE": 15.848997480443186,
+   "N_recovery": 0.27796950889381483
+  },
+  "SSE": 13.575009462412627,
+  "n_obs": 14,
+  "k": 2,
+  "AICc": 4.659334356429646,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4552,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 11171,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.961,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.946,
+    "LAIFL_sim": 4.77,
+    "Nupt": 102.9
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 6015,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 12987,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 4.97,
+    "Nupt": 151.1
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6753,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 13795,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.006,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.011,
+    "LAIFL_sim": 5.0,
+    "Nupt": 199.3
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 4806,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 11495,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.448
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5858,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 12803,
+    "p_NSOILBASE": 93.644,
+    "p_N_recovery": 0.438
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6785,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 13828,
+    "p_NSOILBASE": 89.569,
+    "p_N_recovery": 0.562
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 172.87567787285752,
+   "TAGP": 2018.2662526700153
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6414,
+    "TWSO_72PP": 7476,
+    "err_pct": -15.9,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 13130,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.62
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5703,
+    "TWSO_72PP": 6836,
+    "err_pct": -18.8,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 12140,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.53
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7234,
+    "TWSO_72PP": 9093,
+    "err_pct": 7.3,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14769,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.82
+   }
+  ]
+ },
+ "Wofost81_NWLP_CWB_CNB_NLV": {
+  "label": "WOFOST 8.1 + ekstensi N-daun (SLA + NLAI)",
+  "parameter": {
+   "NSOILBASE": 95.66472079750223,
+   "N_recovery": 0.4541463697371723,
+   "NSLA": 0.0003141460993529806,
+   "NLAI": 2.3351290741417428
+  },
+  "SE": {
+   "NSOILBASE": 30.20358605931378,
+   "N_recovery": 0.3034627075877231,
+   "NSLA": 16.25533598390319,
+   "NLAI": 4.737329431789081
+  },
+  "SSE": 10.125404291822395,
+  "n_obs": 14,
+  "k": 4,
+  "AICc": 7.908307421358155,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4409,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 10355,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 0.967,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.664,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.855,
+    "LAIFL_sim": 3.26,
+    "Nupt": 106.1
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 5932,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 12852,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 4.9,
+    "Nupt": 147.9
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6682,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 13700,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.015,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.015,
+    "LAIFL_sim": 4.98,
+    "Nupt": 189.7
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 3740,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 9856,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.437,
+    "p_NSLA": 4.0,
+    "p_NLAI": 0.0
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5921,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 12855,
+    "p_NSOILBASE": 99.999,
+    "p_N_recovery": 0.417,
+    "p_NSLA": 0.0,
+    "p_NLAI": 2.097
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6725,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 13738,
+    "p_NSOILBASE": 94.735,
+    "p_N_recovery": 0.486,
+    "p_NSLA": 0.0,
+    "p_NLAI": 2.337
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 537.5465871283468,
+   "TAGP": 1847.5602831842862
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6310,
+    "TWSO_72PP": 7476,
+    "err_pct": -17.2,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 12949,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.55
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5630,
+    "TWSO_72PP": 6836,
+    "err_pct": -19.9,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 11955,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.42
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7103,
+    "TWSO_72PP": 9093,
+    "err_pct": 5.4,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14617,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.81
+   }
+  ]
+ },
+ "pengaturan": {
+  "AMAX_REF": "mengikuti AMAXTB@y",
+  "NPART": 0.0,
+  "NSOILBASE_FR": 0.01,
+  "NAVAILI": 0.0,
+  "NMAXSO": 0.0144,
+  "RGRLAI_MIN_FR": 0.5,
+  "pembagian_N_HST": [
+   7,
+   28,
+   42
+  ],
+  "observasi_rasio": {
+   "LAI28": {
+    "23": 0.7451343836886005,
+    "207": 1.149212233549583
+   },
+   "LAIFL": {
+    "23": 0.6433508432402544,
+    "207": 1.116671274536909
+   },
+   "TAGP28": {
+    "23": 0.7402616492723798,
+    "207": 1.168308099367926
+   },
+   "TAGPFL": {
+    "23": 0.8153283476172279,
+    "207": 1.1027075713739831
+   }
+  },
+  "sigma_rasio": {
+   "LAI28": 0.12402652942012045,
+   "LAIFL": 0.22061731573020285,
+   "TAGP28": 0.17338258274694146,
+   "TAGPFL": 0.2542755985146825
+  }
+ }
+}

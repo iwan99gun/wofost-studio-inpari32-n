@@ -1,0 +1,122 @@
+{
+ "parameter": {
+  "TSUM1": 1365.3091153875525,
+  "TSUM2": 796.0276908564368,
+  "SLATB@ya": 1.2,
+  "SLATB@yb": 0.9,
+  "AMAXTB@y": 0.9018642659503345,
+  "SPAN": 36.64536983224122,
+  "TDWI": 143.83359163740352,
+  "RGRLAI": 0.0034993173500608883
+ },
+ "metrik": [
+  {
+   "variabel": "LAI",
+   "set": "subang",
+   "n": 2,
+   "RMSE": 0.1859,
+   "nRMSE_%": 7.2658,
+   "bias": -0.0507,
+   "R2": 0.9944
+  },
+  {
+   "variabel": "TAGP",
+   "set": "subang",
+   "n": 3,
+   "RMSE": 1785.3485,
+   "nRMSE_%": 21.7699,
+   "bias": -931.6351,
+   "R2": 0.9343
+  },
+  {
+   "variabel": "TWSO",
+   "set": "subang",
+   "n": 1,
+   "RMSE": 149.1745,
+   "nRMSE_%": 1.9566,
+   "bias": -149.1745,
+   "R2": NaN
+  },
+  {
+   "variabel": "LAI",
+   "set": "indramayu",
+   "n": 2,
+   "RMSE": 0.1425,
+   "nRMSE_%": 6.2174,
+   "bias": 0.142,
+   "R2": 0.9958
+  },
+  {
+   "variabel": "TAGP",
+   "set": "indramayu",
+   "n": 3,
+   "RMSE": 992.4705,
+   "nRMSE_%": 14.4352,
+   "bias": 138.1255,
+   "R2": 0.9698
+  },
+  {
+   "variabel": "TWSO",
+   "set": "indramayu",
+   "n": 1,
+   "RMSE": 189.8542,
+   "nRMSE_%": 2.7026,
+   "bias": -189.8542,
+   "R2": NaN
+  },
+  {
+   "variabel": "LAI",
+   "set": "bandung",
+   "n": 3,
+   "RMSE": 0.2115,
+   "nRMSE_%": 9.1632,
+   "bias": 0.1698,
+   "R2": 0.987
+  },
+  {
+   "variabel": "TAGP",
+   "set": "bandung",
+   "n": 3,
+   "RMSE": 922.5292,
+   "nRMSE_%": 11.6589,
+   "bias": -418.4345,
+   "R2": 0.9774
+  },
+  {
+   "variabel": "TWSO",
+   "set": "bandung",
+   "n": 1,
+   "RMSE": 1274.8347,
+   "nRMSE_%": 18.9173,
+   "bias": 1274.8347,
+   "R2": NaN
+  },
+  {
+   "variabel": "LAI",
+   "set": "sukamandi_mh17",
+   "n": 4,
+   "RMSE": 1.0127,
+   "nRMSE_%": 35.9588,
+   "bias": -0.6455,
+   "R2": 0.726
+  },
+  {
+   "variabel": "TAGP",
+   "set": "sukamandi_mh17",
+   "n": 4,
+   "RMSE": 1616.7069,
+   "nRMSE_%": 23.6066,
+   "bias": -1187.2485,
+   "R2": 0.936
+  },
+  {
+   "variabel": "TWSO",
+   "set": "sukamandi_mh17",
+   "n": 1,
+   "RMSE": 709.8034,
+   "nRMSE_%": 11.9275,
+   "bias": 709.8034,
+   "R2": NaN
+  }
+ ]
+}

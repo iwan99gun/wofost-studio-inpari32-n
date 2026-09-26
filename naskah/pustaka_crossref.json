@@ -1,0 +1,68 @@
+{
+ "seas5wofost": [
+  {
+   "title": "Skill of rice yields forecasting over Mainland Southeast Asia using the ECMWF SEAS5 ensemble prediction system and the WOFOST crop model",
+   "journal": "Agricultural and Forest Meteorology",
+   "year": 2024,
+   "volume": "351",
+   "page": "110001",
+   "doi": "10.1016/j.agrformet.2024.110001",
+   "first": "Wanthanaporn, Ubolya",
+   "n_auth": 4
+  },
+  {
+   "title": "Skill of the ECMWF SEAS5 ensemble prediction system in streamflow and rice yield forecasting for Mainland Southeast Asia&amp;#160;",
+   "journal": "",
+   "year": 2025,
+   "volume": null,
+   "page": null,
+   "doi": "10.5194/egusphere-egu24-1371",
+   "first": "Wanthanaporn, Ubolya",
+   "n_auth": 3
+  }
+ ],
+ "rsdl2025": [
+  {
+   "title": "Estimation of rice yield using multi-source remote sensing data combined with crop growth model and deep learning algorithm",
+   "journal": "Agricultural and Forest Meteorology",
+   "year": 2025,
+   "volume": "370",
+   "page": "110600",
+   "doi": "10.1016/j.agrformet.2025.110600",
+   "first": "Lu, Jian",
+   "n_auth": 7
+  },
+  {
+   "title": "An Interpretable BO-TCBDA Deep Learning Framework for Winter Wheat Yield Estimation Using Multi-Source Remote Sensing Data",
+   "journal": "Remote Sensing",
+   "year": 2026,
+   "volume": "18",
+   "page": "3061",
+   "doi": "10.3390/rs18183061",
+   "first": "Xue, Anqi",
+   "n_auth": 3
+  }
+ ],
+ "efastyr2023": [
+  {
+   "title": "Sensitivity Analysis of the WOFOST Crop Model Parameters Using the EFAST Method and Verification of Its Adaptability in the Yellow River Irrigation Area, Northwest China",
+   "journal": "Agronomy",
+   "year": 2023,
+   "volume": "13",
+   "page": "2294",
+   "doi": "10.3390/agronomy13092294",
+   "first": "Li, Xinlong",
+   "n_auth": 6
+  },
+  {
+   "title": "Global sensitivity analysis of crop and soil parameters of CERES-Maize model under different irrigation and fertilization regimes based on the EFAST method",
+   "journal": "Agricultural Water Management",
+   "year": 2026,
+   "volume": "328",
+   "page": "110311",
+   "doi": "10.1016/j.agwat.2026.110311",
+   "first": "Tian, Yu",
+   "n_auth": 7
+  }
+ ]
+}

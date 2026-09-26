@@ -1,0 +1,59 @@
+{
+ "parameter_N": {
+  "NSOILBASE": 83.47480616457675,
+  "N_recovery": 0.46184352811656415,
+  "NMAXSO": 0.014400000000160442
+ },
+ "SSE": 2.195954524770453,
+ "n_obs": 6,
+ "pembagian_N_HST": [
+  7,
+  28,
+  42
+ ],
+ "NSOILBASE_FR": 0.02,
+ "NAVAILI": 0.0,
+ "tabel": [
+  {
+   "dosis_N": 23,
+   "TAGP_obs": 10065.3,
+   "TAGP_sim": 11967,
+   "TWSO_obs": 4653,
+   "TWSO_sim": 4545,
+   "Nuptake_sim": 94.1,
+   "LAImax_sim": 5.32,
+   "LAI_bunga_sim": 5.32,
+   "LAI_bunga_obs_rata6gen": 3.723,
+   "LAI28_sim": 1.2,
+   "LAI28_obs_rata6gen": 1.286
+  },
+  {
+   "dosis_N": 115,
+   "TAGP_obs": 15538.9,
+   "TAGP_sim": 13541,
+   "TWSO_obs": 5951,
+   "TWSO_sim": 5946,
+   "Nuptake_sim": 136.6,
+   "LAImax_sim": 5.41,
+   "LAI_bunga_sim": 5.41,
+   "LAI_bunga_obs_rata6gen": 5.787,
+   "LAI28_sim": 1.2,
+   "LAI28_obs_rata6gen": 1.726
+  },
+  {
+   "dosis_N": 207,
+   "TAGP_obs": 15468.0,
+   "TAGP_sim": 14353,
+   "TWSO_obs": 6545,
+   "TWSO_sim": 6718,
+   "Nuptake_sim": 179.1,
+   "LAImax_sim": 5.42,
+   "LAI_bunga_sim": 5.42,
+   "LAI_bunga_obs_rata6gen": 6.462,
+   "LAI28_sim": 1.2,
+   "LAI28_obs_rata6gen": 1.984
+  }
+ ],
+ "catatan": "Observasi Inpari-32 per dosis dari Sujinah et al. 2020 Tabel 8 (biomasa masak) dan Tabel 10 (GKG x 0.86). LAI per dosis pada Tabel 6 adalah rata-rata 6 genotipe (bukan Inpari-32) -> hanya pembanding. NMAXSO dipaku pada nilai ekotipe rice_eu 0.0144 (N gabah ~1.4 %); varian NMAXSO bebas mencapai batas bawah 0.010 (SSE 2.08 vs 2.20) -> tidak dipakai.",
+ "final": true
+}

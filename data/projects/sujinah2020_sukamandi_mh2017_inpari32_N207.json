@@ -1,0 +1,76 @@
+{
+  "model_name": "Wofost81_NWLP_CWB_CNB",
+  "crop_name": "rice",
+  "variety_name": "Rice_IR72",
+  "crop_start_date": "2017-11-22",
+  "crop_start_type": "emergence",
+  "crop_end_date": "2018-04-30",
+  "crop_end_type": "maturity",
+  "max_duration": 200,
+  "soil": {
+    "SMW": 0.22,
+    "SMFCF": 0.42,
+    "SM0": 0.52,
+    "CRAIRC": 0.04,
+    "RDMSOL": 100,
+    "K0": 2.0,
+    "SOPE": 3.0,
+    "KSUB": 3.0
+  },
+  "site": {
+    "WAV": 20.0,
+    "SMLIM": 0.5,
+    "SSMAX": 5.0,
+    "SSI": 5.0,
+    "NOTINF": 0.0,
+    "IFUNRN": 0,
+    "CO2": 400.0,
+    "NAVAILI": 0.0,
+    "NSOILBASE": 90.9397085779488,
+    "NSOILBASE_FR": 0.01,
+    "BG_N_SUPPLY": 0.0
+  },
+  "crop_overrides": {
+    "TSUM1": 1426.0,
+    "TSUM2": 623.0,
+    "SLATB@ya": 1.2,
+    "SLATB@yb": 0.9,
+    "AMAXTB@y": 0.90186,
+    "SPAN": 36.64537,
+    "TDWI": 143.83359,
+    "RGRLAI": 0.0035,
+    "NMAXSO": 0.0144,
+    "RGRLAI_MIN_FR": 0.5
+  },
+  "irrigation": [],
+  "fertilization": [
+    {
+      "day": "2017-11-29",
+      "n_kg_ha": 69.0,
+      "recovery": 0.5210051884842201
+    },
+    {
+      "day": "2017-12-20",
+      "n_kg_ha": 69.0,
+      "recovery": 0.5210051884842201
+    },
+    {
+      "day": "2018-01-03",
+      "n_kg_ha": 69.0,
+      "recovery": 0.5210051884842201
+    }
+  ],
+  "weather": {
+    "source": "openmeteo",
+    "latitude": -6.35,
+    "longitude": 107.65,
+    "path": "",
+    "station": "",
+    "et_model": "PM",
+    "timezone": "Asia/Jakarta"
+  },
+  "transplant_shock": true,
+  "seedling_age_days": 21,
+  "shckl": 0.25,
+  "shckd": 0.4
+}

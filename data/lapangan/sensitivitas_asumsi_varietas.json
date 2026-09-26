@@ -1,0 +1,504 @@
+{
+ "varietas": [
+  {
+   "model": "std",
+   "varian": "dasar (skala fenologi Inpari-33)",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -0.2,
+   "err_Y140_pct": -11.4,
+   "rY": 0.657,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.345
+  },
+  {
+   "model": "std",
+   "varian": "dasar (skala fenologi Inpari-33)",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -2.1,
+   "err_Y140_pct": 32.2,
+   "rY": 0.599,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.445
+  },
+  {
+   "model": "std",
+   "varian": "fenologi Inpari-32 (tanpa skala)",
+   "musim": "S2022",
+   "DOM_HST": 100,
+   "err_Y0_pct": 7.6,
+   "err_Y140_pct": -0.9,
+   "rY": 0.634,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.343
+  },
+  {
+   "model": "std",
+   "varian": "fenologi Inpari-32 (tanpa skala)",
+   "musim": "S2020",
+   "DOM_HST": 88,
+   "err_Y0_pct": -2.0,
+   "err_Y140_pct": 32.3,
+   "rY": 0.599,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.446
+  },
+  {
+   "model": "std",
+   "varian": "fenologi -10 %",
+   "musim": "S2022",
+   "DOM_HST": 79,
+   "err_Y0_pct": -6.7,
+   "err_Y140_pct": -22.2,
+   "rY": 0.701,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.351
+  },
+  {
+   "model": "std",
+   "varian": "fenologi -10 %",
+   "musim": "S2020",
+   "DOM_HST": 81,
+   "err_Y0_pct": -6.4,
+   "err_Y140_pct": 26.6,
+   "rY": 0.598,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.453
+  },
+  {
+   "model": "std",
+   "varian": "fenologi +10 %",
+   "musim": "S2022",
+   "DOM_HST": 95,
+   "err_Y0_pct": 5.5,
+   "err_Y140_pct": -3.2,
+   "rY": 0.636,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.344
+  },
+  {
+   "model": "std",
+   "varian": "fenologi +10 %",
+   "musim": "S2020",
+   "DOM_HST": 99,
+   "err_Y0_pct": -0.2,
+   "err_Y140_pct": 34.9,
+   "rY": 0.598,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.442
+  },
+  {
+   "model": "std",
+   "varian": "AMAX x0.9",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": 0.4,
+   "err_Y140_pct": -15.7,
+   "rY": 0.695,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.351
+  },
+  {
+   "model": "std",
+   "varian": "AMAX x0.9",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -0.9,
+   "err_Y140_pct": 30.5,
+   "rY": 0.614,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.453
+  },
+  {
+   "model": "std",
+   "varian": "AMAX x1.1",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -0.7,
+   "err_Y140_pct": -8.6,
+   "rY": 0.634,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.338
+  },
+  {
+   "model": "std",
+   "varian": "AMAX x1.1",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -3.1,
+   "err_Y140_pct": 33.5,
+   "rY": 0.587,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.436
+  },
+  {
+   "model": "std",
+   "varian": "SLA x0.9",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": 0.2,
+   "err_Y140_pct": -14.8,
+   "rY": 0.687,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.35
+  },
+  {
+   "model": "std",
+   "varian": "SLA x0.9",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -0.9,
+   "err_Y140_pct": 31.8,
+   "rY": 0.608,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.45
+  },
+  {
+   "model": "std",
+   "varian": "SLA x1.1",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -0.7,
+   "err_Y140_pct": -9.6,
+   "rY": 0.641,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.341
+  },
+  {
+   "model": "std",
+   "varian": "SLA x1.1",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -3.2,
+   "err_Y140_pct": 32.3,
+   "rY": 0.592,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.44
+  },
+  {
+   "model": "ext",
+   "varian": "dasar (skala fenologi Inpari-33)",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -1.4,
+   "err_Y140_pct": -12.1,
+   "rY": 0.655,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.114
+  },
+  {
+   "model": "ext",
+   "varian": "dasar (skala fenologi Inpari-33)",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -6.8,
+   "err_Y140_pct": 30.2,
+   "rY": 0.579,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.155
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi Inpari-32 (tanpa skala)",
+   "musim": "S2022",
+   "DOM_HST": 100,
+   "err_Y0_pct": 8.0,
+   "err_Y140_pct": -2.2,
+   "rY": 0.645,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.074
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi Inpari-32 (tanpa skala)",
+   "musim": "S2020",
+   "DOM_HST": 88,
+   "err_Y0_pct": -7.2,
+   "err_Y140_pct": 30.2,
+   "rY": 0.576,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.158
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi -10 %",
+   "musim": "S2022",
+   "DOM_HST": 79,
+   "err_Y0_pct": -7.7,
+   "err_Y140_pct": -22.9,
+   "rY": 0.699,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.154
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi -10 %",
+   "musim": "S2020",
+   "DOM_HST": 81,
+   "err_Y0_pct": -10.4,
+   "err_Y140_pct": 24.3,
+   "rY": 0.582,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.185
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi +10 %",
+   "musim": "S2022",
+   "DOM_HST": 95,
+   "err_Y0_pct": 5.1,
+   "err_Y140_pct": -4.6,
+   "rY": 0.644,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.084
+  },
+  {
+   "model": "ext",
+   "varian": "fenologi +10 %",
+   "musim": "S2020",
+   "DOM_HST": 99,
+   "err_Y0_pct": -4.7,
+   "err_Y140_pct": 32.2,
+   "rY": 0.583,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.142
+  },
+  {
+   "model": "ext",
+   "varian": "AMAX x0.9",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -1.7,
+   "err_Y140_pct": -16.0,
+   "rY": 0.683,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.144
+  },
+  {
+   "model": "ext",
+   "varian": "AMAX x0.9",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -6.8,
+   "err_Y140_pct": 28.4,
+   "rY": 0.587,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.184
+  },
+  {
+   "model": "ext",
+   "varian": "AMAX x1.1",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -1.5,
+   "err_Y140_pct": -9.9,
+   "rY": 0.638,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.092
+  },
+  {
+   "model": "ext",
+   "varian": "AMAX x1.1",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -7.3,
+   "err_Y140_pct": 31.3,
+   "rY": 0.571,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.133
+  },
+  {
+   "model": "ext",
+   "varian": "SLA x0.9",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -0.9,
+   "err_Y140_pct": -15.1,
+   "rY": 0.681,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.166
+  },
+  {
+   "model": "ext",
+   "varian": "SLA x0.9",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -7.0,
+   "err_Y140_pct": 29.6,
+   "rY": 0.58,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.2
+  },
+  {
+   "model": "ext",
+   "varian": "SLA x1.1",
+   "musim": "S2022",
+   "DOM_HST": 86,
+   "err_Y0_pct": -1.9,
+   "err_Y140_pct": -10.8,
+   "rY": 0.642,
+   "rY_obs": 0.584,
+   "rmse_rLAI": 0.08
+  },
+  {
+   "model": "ext",
+   "varian": "SLA x1.1",
+   "musim": "S2020",
+   "DOM_HST": 89,
+   "err_Y0_pct": -6.7,
+   "err_Y140_pct": 30.4,
+   "rY": 0.579,
+   "rY_obs": 0.809,
+   "rmse_rLAI": 0.118
+  }
+ ],
+ "ringkasan": [
+  {
+   "model": "ext",
+   "musim": "S2020",
+   "err_Y0_min": -10.4,
+   "err_Y0_max": -4.7,
+   "rmse_rLAI_min": 0.118,
+   "rmse_rLAI_max": 0.2
+  },
+  {
+   "model": "ext",
+   "musim": "S2022",
+   "err_Y0_min": -7.7,
+   "err_Y0_max": 8.0,
+   "rmse_rLAI_min": 0.074,
+   "rmse_rLAI_max": 0.166
+  },
+  {
+   "model": "std",
+   "musim": "S2020",
+   "err_Y0_min": -6.4,
+   "err_Y0_max": -0.2,
+   "rmse_rLAI_min": 0.436,
+   "rmse_rLAI_max": 0.453
+  },
+  {
+   "model": "std",
+   "musim": "S2022",
+   "err_Y0_min": -6.7,
+   "err_Y0_max": 7.6,
+   "rmse_rLAI_min": 0.338,
+   "rmse_rLAI_max": 0.351
+  }
+ ],
+ "nni_awal": [
+  {
+   "dosis": 23,
+   "HST": 7,
+   "NNI": 1.0,
+   "NAVAIL": 1.1,
+   "LAI": 0.28,
+   "Nuptake": 5.3
+  },
+  {
+   "dosis": 23,
+   "HST": 14,
+   "NNI": 1.0,
+   "NAVAIL": 2.2,
+   "LAI": 0.45,
+   "Nuptake": 14.5
+  },
+  {
+   "dosis": 23,
+   "HST": 21,
+   "NNI": 0.988,
+   "NAVAIL": 0.9,
+   "LAI": 0.71,
+   "Nuptake": 22.2
+  },
+  {
+   "dosis": 23,
+   "HST": 28,
+   "NNI": 0.853,
+   "NAVAIL": 0.9,
+   "LAI": 1.08,
+   "Nuptake": 28.5
+  },
+  {
+   "dosis": 23,
+   "HST": 35,
+   "NNI": 0.745,
+   "NAVAIL": 0.9,
+   "LAI": 1.69,
+   "Nuptake": 38.9
+  },
+  {
+   "dosis": 23,
+   "HST": 42,
+   "NNI": 0.554,
+   "NAVAIL": 0.9,
+   "LAI": 2.66,
+   "Nuptake": 45.3
+  },
+  {
+   "dosis": 23,
+   "HST": 56,
+   "NNI": 0.496,
+   "NAVAIL": 0.9,
+   "LAI": 4.36,
+   "Nuptake": 62.0
+  },
+  {
+   "dosis": 207,
+   "HST": 7,
+   "NNI": 1.0,
+   "NAVAIL": 1.1,
+   "LAI": 0.28,
+   "Nuptake": 5.3
+  },
+  {
+   "dosis": 207,
+   "HST": 14,
+   "NNI": 1.0,
+   "NAVAIL": 34.4,
+   "LAI": 0.45,
+   "Nuptake": 14.5
+  },
+  {
+   "dosis": 207,
+   "HST": 21,
+   "NNI": 1.0,
+   "NAVAIL": 29.3,
+   "LAI": 0.71,
+   "Nuptake": 26.0
+  },
+  {
+   "dosis": 207,
+   "HST": 28,
+   "NNI": 1.0,
+   "NAVAIL": 22.3,
+   "LAI": 1.08,
+   "Nuptake": 39.3
+  },
+  {
+   "dosis": 207,
+   "HST": 35,
+   "NNI": 1.0,
+   "NAVAIL": 43.6,
+   "LAI": 1.69,
+   "Nuptake": 60.5
+  },
+  {
+   "dosis": 207,
+   "HST": 42,
+   "NNI": 1.0,
+   "NAVAIL": 19.7,
+   "LAI": 2.67,
+   "Nuptake": 90.8
+  },
+  {
+   "dosis": 207,
+   "HST": 56,
+   "NNI": 1.0,
+   "NAVAIL": 16.4,
+   "LAI": 4.52,
+   "Nuptake": 143.0
+  }
+ ]
+}

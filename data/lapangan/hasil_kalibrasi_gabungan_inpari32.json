@@ -1,0 +1,165 @@
+{
+ "tahap1_per_lokasi": {
+  "subang": {
+   "TSUM1": 1560.3348100402106,
+   "TSUM2": 837.8338025980648
+  },
+  "indramayu": {
+   "TSUM1": 1639.5296259144636,
+   "TSUM2": 916.0951768416079
+  },
+  "bandung": {
+   "TSUM1": 1370.3258400049021,
+   "TSUM2": 755.5865899435981
+  }
+ },
+ "tsum_gabungan": {
+  "TSUM1": 1523.396758653192,
+  "TSUM2": 836.5051897944236
+ },
+ "tahap2_gabungan": {
+  "TSUM1": 1523.396758653192,
+  "TSUM2": 836.5051897944236,
+  "AMAXTB@y": 1.1415228330969172,
+  "SPAN": 37.164351112953966,
+  "SLATB@y": 0.600002900927387,
+  "TDWI": 78.72699778476479
+ },
+ "posterior": {
+  "MAP_ls": {
+   "AMAXTB@y": 1.1415,
+   "SPAN": 37.1644,
+   "SLATB@y": 0.6,
+   "TDWI": 78.727
+  },
+  "median": {
+   "AMAXTB@y": 1.134,
+   "SPAN": 37.5639,
+   "SLATB@y": 0.6025,
+   "TDWI": 80.8074
+  },
+  "q2.5": {
+   "AMAXTB@y": 1.0791,
+   "SPAN": 35.4191,
+   "SLATB@y": 0.6,
+   "TDWI": 64.0731
+  },
+  "q97.5": {
+   "AMAXTB@y": 1.1763,
+   "SPAN": 38.1861,
+   "SLATB@y": 0.6175,
+   "TDWI": 85.6044
+  }
+ },
+ "metrik": [
+  {
+   "variabel": "LAI",
+   "lokasi": "subang",
+   "n": 2,
+   "RMSE": 0.2417,
+   "nRMSE_%": 9.4494,
+   "bias": -0.1541,
+   "R2": 0.9905
+  },
+  {
+   "variabel": "TAGP",
+   "lokasi": "subang",
+   "n": 3,
+   "RMSE": 1293.7606,
+   "nRMSE_%": 15.7756,
+   "bias": -407.6916,
+   "R2": 0.9655
+  },
+  {
+   "variabel": "TWST",
+   "lokasi": "subang",
+   "n": 3,
+   "RMSE": 1607.7231,
+   "nRMSE_%": 41.3108,
+   "bias": -816.3813,
+   "R2": 0.719
+  },
+  {
+   "variabel": "TWSO",
+   "lokasi": "subang",
+   "n": 1,
+   "RMSE": 311.9865,
+   "nRMSE_%": 4.0922,
+   "bias": 311.9865,
+   "R2": NaN
+  },
+  {
+   "variabel": "LAI",
+   "lokasi": "indramayu",
+   "n": 2,
+   "RMSE": 0.2616,
+   "nRMSE_%": 11.4127,
+   "bias": -0.1685,
+   "R2": 0.986
+  },
+  {
+   "variabel": "TAGP",
+   "lokasi": "indramayu",
+   "n": 3,
+   "RMSE": 1031.7217,
+   "nRMSE_%": 15.0061,
+   "bias": 322.2475,
+   "R2": 0.9674
+  },
+  {
+   "variabel": "TWST",
+   "lokasi": "indramayu",
+   "n": 3,
+   "RMSE": 927.6235,
+   "nRMSE_%": 26.1123,
+   "bias": -717.2775,
+   "R2": 0.8599
+  },
+  {
+   "variabel": "TWSO",
+   "lokasi": "indramayu",
+   "n": 1,
+   "RMSE": 4.0206,
+   "nRMSE_%": 0.0572,
+   "bias": -4.0206,
+   "R2": NaN
+  },
+  {
+   "variabel": "LAI",
+   "lokasi": "bandung",
+   "n": 3,
+   "RMSE": 0.6263,
+   "nRMSE_%": 27.1341,
+   "bias": 0.3416,
+   "R2": 0.886
+  },
+  {
+   "variabel": "TAGP",
+   "lokasi": "bandung",
+   "n": 3,
+   "RMSE": 1290.4633,
+   "nRMSE_%": 16.3088,
+   "bias": 594.5292,
+   "R2": 0.9558
+  },
+  {
+   "variabel": "TWST",
+   "lokasi": "bandung",
+   "n": 3,
+   "RMSE": 1736.9537,
+   "nRMSE_%": 35.8004,
+   "bias": -1402.4582,
+   "R2": 0.7341
+  },
+  {
+   "variabel": "TWSO",
+   "lokasi": "bandung",
+   "n": 1,
+   "RMSE": 1817.7763,
+   "nRMSE_%": 26.974,
+   "bias": 1817.7763,
+   "R2": NaN
+  }
+ ],
+ "n_evaluasi_ls": 410
+}

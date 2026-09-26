@@ -1,0 +1,47 @@
+{
+ "semua": {
+  "RMSE_AGB_t": 1.2934103811383297,
+  "RMSE_batang_t": 1.8159996445753337,
+  "RMSE_LAI": 0.6079962748500355,
+  "RMSEn_rata2_pct": 29.219571381168652,
+  "r2": {
+   "LAI": 0.9183340446716254,
+   "TAGP": 0.9677119466212565,
+   "TWST": 0.9006203397222785
+  }
+ },
+ "tanpa LAI masak": {
+  "RMSE_AGB_t": 1.2934103811383297,
+  "RMSE_batang_t": 1.8159996445753337,
+  "RMSE_LAI": 0.2012879359218703,
+  "RMSEn_rata2_pct": 23.190519826900534,
+  "r2": {
+   "LAI": 0.9947596402083064,
+   "TAGP": 0.9677119466212565,
+   "TWST": 0.9006203397222785
+  }
+ },
+ "ORYZA_Agustiani2018": {
+  "RMSE_AGB_t": 1.6,
+  "RMSE_batang_t": 0.7,
+  "RMSE_LAI": 0.5,
+  "RMSEn_pct": 23,
+  "catatan": "satu observasi dikecualikan; r2 > 0.93"
+ },
+ "SD_eksperimen": {
+  "AGB_t": 1.1,
+  "batang_t": 0.6,
+  "LAI": 0.2
+ },
+ "dengan_PART_DELAY": {
+  "RMSE_AGB_t": 1.3363737262763524,
+  "RMSE_batang_t": 1.0139076558584363,
+  "RMSE_LAI": 0.16993216156585556,
+  "RMSEn_pct": 16.41877535152738,
+  "r2": {
+   "LAI": 0.9956829330899645,
+   "TAGP": 0.9692453387806551,
+   "TWST": 0.899352156687339
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "per_kabupaten": {
+  "Bandung": {
+   "n": 8,
+   "rasio_obs_Yp_mean": 0.425,
+   "r_anomali": 0.566,
+   "CV_obs_%": 4.75,
+   "CV_sim_%": 2.86
+  },
+  "Indramayu": {
+   "n": 8,
+   "rasio_obs_Yp_mean": 0.662,
+   "r_anomali": 0.405,
+   "CV_obs_%": 4.79,
+   "CV_sim_%": 5.89
+  },
+  "Subang": {
+   "n": 8,
+   "rasio_obs_Yp_mean": 0.604,
+   "r_anomali": 0.242,
+   "CV_obs_%": 1.83,
+   "CV_sim_%": 4.6
+  }
+ },
+ "metrik_langsung": {
+  "n": 24,
+  "RMSE": 4784.344445444721,
+  "nRMSE_%": 92.12251525611009,
+  "bias": 4371.430342919413,
+  "R2": -427.94465810416335,
+  "r_pearson": 0.09699349830721776,
+  "d_Willmott": 0.06741263693509925,
+  "EF_Nash": -427.94465810416335
+ }
+}

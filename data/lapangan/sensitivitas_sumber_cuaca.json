@@ -1,0 +1,200 @@
+{
+ "statistik": [
+  {
+   "periode": "Sujinah MH17/18",
+   "OM_TMIN": 23.49,
+   "OM_TMAX": 29.62,
+   "OM_IRRAD_MJ": 16.44,
+   "OM_RAIN_mm_total": 953.5,
+   "OM_VAP": 28.03,
+   "NP_TMIN": 22.44,
+   "NP_TMAX": 28.34,
+   "NP_IRRAD_MJ": 16.32,
+   "NP_RAIN_mm_total": 974.26,
+   "NP_VAP": 27.39
+  },
+  {
+   "periode": "LTFE MK2022",
+   "OM_TMIN": 22.81,
+   "OM_TMAX": 30.53,
+   "OM_IRRAD_MJ": 17.22,
+   "OM_RAIN_mm_total": 579.9,
+   "OM_VAP": 28.36,
+   "NP_TMIN": 22.64,
+   "NP_TMAX": 28.4,
+   "NP_IRRAD_MJ": 15.58,
+   "NP_RAIN_mm_total": 483.38,
+   "NP_VAP": 27.53
+  },
+  {
+   "periode": "LTFE 2020",
+   "OM_TMIN": 24.0,
+   "OM_TMAX": 34.09,
+   "OM_IRRAD_MJ": 20.2,
+   "OM_RAIN_mm_total": 354.5,
+   "OM_VAP": 25.72,
+   "NP_TMIN": 22.3,
+   "NP_TMAX": 29.69,
+   "NP_IRRAD_MJ": 19.52,
+   "NP_RAIN_mm_total": 531.54,
+   "NP_VAP": 26.65
+  },
+  {
+   "periode": "Agustiani Subang",
+   "OM_TMIN": 22.68,
+   "OM_TMAX": 29.66,
+   "OM_IRRAD_MJ": 17.57,
+   "OM_RAIN_mm_total": 468.6,
+   "OM_VAP": 28.47,
+   "NP_TMIN": 22.94,
+   "NP_TMAX": 28.98,
+   "NP_IRRAD_MJ": 16.5,
+   "NP_RAIN_mm_total": 616.28,
+   "NP_VAP": 27.8
+  },
+  {
+   "periode": "Agustiani Indramayu",
+   "OM_TMIN": 24.16,
+   "OM_TMAX": 30.24,
+   "OM_IRRAD_MJ": 17.96,
+   "OM_RAIN_mm_total": 339.5,
+   "OM_VAP": 28.79,
+   "NP_TMIN": 24.58,
+   "NP_TMAX": 29.48,
+   "NP_IRRAD_MJ": 16.69,
+   "NP_RAIN_mm_total": 566.61,
+   "NP_VAP": 29.08
+  },
+  {
+   "periode": "Agustiani Bandung",
+   "OM_TMIN": 20.72,
+   "OM_TMAX": 27.41,
+   "OM_IRRAD_MJ": 16.22,
+   "OM_RAIN_mm_total": 511.3,
+   "OM_VAP": 25.14,
+   "NP_TMIN": 18.74,
+   "NP_TMAX": 25.57,
+   "NP_IRRAD_MJ": 16.61,
+   "NP_RAIN_mm_total": 846.5,
+   "NP_VAP": 23.06
+  }
+ ],
+ "sujinah": [
+  {
+   "cuaca": "openmeteo",
+   "dosis": 23,
+   "TWSO_obs": 4653,
+   "TWSO_sim": 4545,
+   "DOA": "2018-01-28",
+   "DOM": "2018-03-03"
+  },
+  {
+   "cuaca": "openmeteo",
+   "dosis": 115,
+   "TWSO_obs": 5951,
+   "TWSO_sim": 5912,
+   "DOA": "2018-01-28",
+   "DOM": "2018-03-03"
+  },
+  {
+   "cuaca": "openmeteo",
+   "dosis": 207,
+   "TWSO_obs": 6545,
+   "TWSO_sim": 6747,
+   "DOA": "2018-01-28",
+   "DOM": "2018-03-03"
+  },
+  {
+   "cuaca": "nasapower",
+   "dosis": 23,
+   "TWSO_obs": 4653,
+   "TWSO_sim": 4701,
+   "DOA": "2018-02-01",
+   "DOM": "2018-03-07"
+  },
+  {
+   "cuaca": "nasapower",
+   "dosis": 115,
+   "TWSO_obs": 5951,
+   "TWSO_sim": 6098,
+   "DOA": "2018-02-01",
+   "DOM": "2018-03-07"
+  },
+  {
+   "cuaca": "nasapower",
+   "dosis": 207,
+   "TWSO_obs": 6545,
+   "TWSO_sim": 6903,
+   "DOA": "2018-02-01",
+   "DOM": "2018-03-07"
+  }
+ ],
+ "ltfe": [
+  {
+   "cuaca": "openmeteo",
+   "musim": "S2022",
+   "f_TSUM": 0.858,
+   "Y0_obs": 3449,
+   "Y0_sim": 3504,
+   "err_Y0_pct": 1.6,
+   "Y140_obs": 5908,
+   "Y140_sim": 5278
+  },
+  {
+   "cuaca": "openmeteo",
+   "musim": "S2020",
+   "f_TSUM": 1.014,
+   "Y0_obs": 3268,
+   "Y0_sim": 3249,
+   "err_Y0_pct": -0.6,
+   "Y140_obs": 4042,
+   "Y140_sim": 5226
+  },
+  {
+   "cuaca": "nasapower",
+   "musim": "S2022",
+   "f_TSUM": 0.808,
+   "Y0_obs": 3449,
+   "Y0_sim": 3600,
+   "err_Y0_pct": 4.4,
+   "Y140_obs": 5908,
+   "Y140_sim": 5165
+  },
+  {
+   "cuaca": "nasapower",
+   "musim": "S2020",
+   "f_TSUM": 0.879,
+   "Y0_obs": 3268,
+   "Y0_sim": 3818,
+   "err_Y0_pct": 16.8,
+   "Y140_obs": 4042,
+   "Y140_sim": 5810
+  }
+ ],
+ "agustiani": [
+  {
+   "lokasi": "subang",
+   "TWSO_obs": 7624,
+   "TWSO_openmeteo": 7476,
+   "DOA_openmeteo": "2016-07-06",
+   "TWSO_nasapower": 7462,
+   "DOA_nasapower": "2016-07-06"
+  },
+  {
+   "lokasi": "indramayu",
+   "TWSO_obs": 7025,
+   "TWSO_openmeteo": 6836,
+   "DOA_openmeteo": "2016-07-03",
+   "TWSO_nasapower": 6627,
+   "DOA_nasapower": "2016-07-02"
+  },
+  {
+   "lokasi": "bandung",
+   "TWSO_obs": 6739,
+   "TWSO_openmeteo": 9093,
+   "DOA_openmeteo": "2016-07-14",
+   "TWSO_nasapower": 11512,
+   "DOA_nasapower": "2016-07-22"
+  }
+ ]
+}

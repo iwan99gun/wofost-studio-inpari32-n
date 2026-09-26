@@ -1,0 +1,172 @@
+{
+ "dekomposisi": [
+  {
+   "musim": "S2022",
+   "waktu": 35,
+   "rasio_LAI": 0.6602743544771352,
+   "rasio_anakan": 0.8778337531486146,
+   "rasio_luas_per_anakan": 0.7521633248993478,
+   "porsi_anakan": 0.3138956881846896
+  },
+  {
+   "musim": "S2022",
+   "waktu": 60,
+   "rasio_LAI": 0.4496169281284203,
+   "rasio_anakan": 0.7941489361702128,
+   "rasio_luas_per_anakan": 0.5661619724590959,
+   "porsi_anakan": 0.28833623347565984
+  },
+  {
+   "musim": "S2020",
+   "waktu": 35,
+   "rasio_LAI": 0.5374755062050947,
+   "rasio_anakan": 0.7285067873303167,
+   "rasio_luas_per_anakan": 0.7377769370889808,
+   "porsi_anakan": 0.5101829212516152
+  },
+  {
+   "musim": "S2020",
+   "waktu": "FL",
+   "rasio_LAI": 0.33917946589179465,
+   "rasio_anakan": 0.7395833333333334,
+   "rasio_luas_per_anakan": 0.4586088552903138,
+   "porsi_anakan": 0.27900581236902866
+  }
+ ],
+ "strategi_N": [
+  {
+   "musim": "S2022",
+   "model": "std",
+   "waktu": 35,
+   "sim_rasio_LAI": 0.9991693265924146,
+   "sim_rasio_SLN": 0.5251759537519308,
+   "SLN0": 1.118100540224519,
+   "SLN140": 2.1290017797590535,
+   "obs_rasio_LAI": 0.6602743544771352,
+   "obs_rasio_SPAD": null,
+   "sim_rasio_WLV_per_LAI": 0.9969331331471043
+  },
+  {
+   "musim": "S2022",
+   "model": "std",
+   "waktu": 60,
+   "sim_rasio_LAI": 0.9394817014970606,
+   "sim_rasio_SLN": 0.43013065040456877,
+   "SLN0": 0.6073763884133591,
+   "SLN140": 1.4120741868594529,
+   "obs_rasio_LAI": 0.4496169281284203,
+   "obs_rasio_SPAD": null,
+   "sim_rasio_WLV_per_LAI": 1.005843368796253
+  },
+  {
+   "musim": "S2022",
+   "model": "ext",
+   "waktu": 35,
+   "sim_rasio_LAI": 0.7730080534799993,
+   "sim_rasio_SLN": 0.7340875636828181,
+   "SLN0": 1.5722996849852717,
+   "SLN140": 2.141842149044532,
+   "obs_rasio_LAI": 0.6602743544771352,
+   "obs_rasio_SPAD": null,
+   "sim_rasio_WLV_per_LAI": 1.1845058981641248
+  },
+  {
+   "musim": "S2022",
+   "model": "ext",
+   "waktu": 60,
+   "sim_rasio_LAI": 0.6112372191683797,
+   "sim_rasio_SLN": 0.7497231445499456,
+   "SLN0": 1.0335172522259584,
+   "SLN140": 1.37853187505152,
+   "obs_rasio_LAI": 0.4496169281284203,
+   "obs_rasio_SPAD": null,
+   "sim_rasio_WLV_per_LAI": 1.3703870624219963
+  },
+  {
+   "musim": "S2020",
+   "model": "std",
+   "waktu": 35,
+   "sim_rasio_LAI": 0.9962456873314219,
+   "sim_rasio_SLN": 0.49144143146199765,
+   "SLN0": 0.9105699558434786,
+   "SLN140": 1.8528554931451509,
+   "obs_rasio_LAI": 0.5374755062050947,
+   "obs_rasio_SPAD": 0.9010220548682087,
+   "sim_rasio_WLV_per_LAI": 0.9842991369414072
+  },
+  {
+   "musim": "S2020",
+   "model": "std",
+   "waktu": "FL",
+   "sim_rasio_LAI": 0.8837843945346142,
+   "sim_rasio_SLN": 0.4592924526615837,
+   "SLN0": 0.4809832790905151,
+   "SLN140": 1.0472266119402438,
+   "obs_rasio_LAI": 0.33917946589179465,
+   "obs_rasio_SPAD": 0.9170804369414101,
+   "sim_rasio_WLV_per_LAI": 0.9943321052396975
+  },
+  {
+   "musim": "S2020",
+   "model": "ext",
+   "waktu": 35,
+   "sim_rasio_LAI": 0.6504294455499243,
+   "sim_rasio_SLN": 0.8189104149261154,
+   "SLN0": 1.530834662196931,
+   "SLN140": 1.8693554683085178,
+   "obs_rasio_LAI": 0.5374755062050947,
+   "obs_rasio_SPAD": 0.9010220548682087,
+   "sim_rasio_WLV_per_LAI": 1.325815589042822
+  },
+  {
+   "musim": "S2020",
+   "model": "ext",
+   "waktu": "FL",
+   "sim_rasio_LAI": 0.46609272901009857,
+   "sim_rasio_SLN": 1.0088676129800969,
+   "SLN0": 1.0102476234320061,
+   "SLN140": 1.0013678806160036,
+   "obs_rasio_LAI": 0.33917946589179465,
+   "obs_rasio_SPAD": 0.9170804369414101,
+   "sim_rasio_WLV_per_LAI": 1.5996587294843807
+  }
+ ],
+ "intersepsi": [
+  {
+   "musim": "S2022",
+   "waktu": 60,
+   "k": 0.6,
+   "LAI0": 1.97184,
+   "LAI140": 4.3856,
+   "f_int0": 0.693673575846849,
+   "f_int140": 0.9280194978419248,
+   "rasio_intersepsi": 0.7474773724689635,
+   "rasio_hasil": 0.5836972343522562,
+   "rasio_hasil_per_intersepsi": 0.7808895036170372
+  },
+  {
+   "musim": "S2020",
+   "waktu": "FL",
+   "k": 0.6,
+   "LAI0": 1.5688,
+   "LAI140": 4.62528,
+   "f_int0": 0.6098718484049057,
+   "f_int140": 0.9376609971425839,
+   "rasio_intersepsi": 0.6504182751158696,
+   "rasio_hasil": 0.8085106382978723,
+   "rasio_hasil_per_intersepsi": 1.2430626094474961
+  }
+ ],
+ "biomasa_per_luas_daun": [
+  {
+   "musim": "S2022",
+   "waktu": 35,
+   "obs_rasio": 1.1609311507173021
+  },
+  {
+   "musim": "S2022",
+   "waktu": 60,
+   "obs_rasio": 1.6445845055674684
+  }
+ ]
+}

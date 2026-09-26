@@ -1,0 +1,319 @@
+{
+ "Wofost81_NWLP_CWB_CNB": {
+  "label": "WOFOST 8.1 standar",
+  "parameter": {
+   "NSOILBASE": 93.47360873735872,
+   "N_recovery": 0.446133460305299
+  },
+  "SE": {
+   "NSOILBASE": 13.966749791191,
+   "N_recovery": 0.17998504772860804
+  },
+  "SSE": 13.395263761944179,
+  "n_obs": 14,
+  "k": 2,
+  "AICc": 4.472723190577654,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4545,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 11326,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.958,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.942,
+    "LAIFL_sim": 4.82,
+    "Nupt": 103.7
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 5912,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 13095,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 5.04,
+    "Nupt": 144.8
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6747,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 14057,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.012,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.02,
+    "LAIFL_sim": 5.1,
+    "Nupt": 185.8
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 4744,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 11591,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.408
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5831,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 13000,
+    "p_NSOILBASE": 94.776,
+    "p_N_recovery": 0.407
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6923,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 14242,
+    "p_NSOILBASE": 90.571,
+    "p_N_recovery": 0.529
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 234.92197286191288,
+   "TAGP": 1850.9702860932155
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6233,
+    "TWSO_72PP": 7476,
+    "err_pct": -18.2,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 13177,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.68
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5546,
+    "TWSO_72PP": 6836,
+    "err_pct": -21.1,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 12203,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.6
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7024,
+    "TWSO_72PP": 9093,
+    "err_pct": 4.2,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14814,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.9
+   }
+  ]
+ },
+ "Wofost81_NWLP_CWB_CNB_NLV": {
+  "label": "WOFOST 8.1 + ekstensi N-daun (LINTUL3)",
+  "parameter": {
+   "NSOILBASE": 99.99999999780303,
+   "N_recovery": 0.4264923379388691,
+   "NSLA": 2.1656354728899254,
+   "NPART": 7.627184792324174e-10
+  },
+  "SE": {
+   "NSOILBASE": 107.25988646629008,
+   "N_recovery": 0.6386494783379498,
+   "NSLA": 3.5255808105075688,
+   "NPART": 6.1035279323494125
+  },
+  "SSE": 11.218263954501827,
+  "n_obs": 14,
+  "k": 4,
+  "AICc": 9.343246074873829,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4441,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 11021,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.723,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.91,
+    "LAIFL_sim": 3.55,
+    "Nupt": 109.8
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 5960,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 13140,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 4.9,
+    "Nupt": 149.0
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6777,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 14099,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.042,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.022,
+    "LAIFL_sim": 5.11,
+    "Nupt": 188.3
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 4135,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 10558,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.415,
+    "p_NSLA": 3.0,
+    "p_NPART": 0.0
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5854,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 13014,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.389,
+    "p_NSLA": 1.547,
+    "p_NPART": 0.0
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6919,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 14249,
+    "p_NSOILBASE": 100.0,
+    "p_N_recovery": 0.481,
+    "p_NSLA": 2.274,
+    "p_NPART": 0.0
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 373.09918252389673,
+   "TAGP": 1643.6377338087611
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6339,
+    "TWSO_72PP": 7476,
+    "err_pct": -16.9,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 13303,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.7
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5625,
+    "TWSO_72PP": 6836,
+    "err_pct": -19.9,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 12275,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.53
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7137,
+    "TWSO_72PP": 9093,
+    "err_pct": 5.9,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14950,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.86
+   }
+  ]
+ },
+ "pengaturan": {
+  "NSOILBASE_FR": 0.01,
+  "NAVAILI": 0.0,
+  "NMAXSO": 0.0144,
+  "RGRLAI_MIN_FR": 0.5,
+  "pembagian_N_HST": [
+   7,
+   28,
+   42
+  ],
+  "observasi_rasio": {
+   "LAI28": {
+    "23": 0.7451343836886005,
+    "207": 1.149212233549583
+   },
+   "LAIFL": {
+    "23": 0.6433508432402544,
+    "207": 1.116671274536909
+   },
+   "TAGP28": {
+    "23": 0.7402616492723798,
+    "207": 1.168308099367926
+   },
+   "TAGPFL": {
+    "23": 0.8153283476172279,
+    "207": 1.1027075713739831
+   }
+  },
+  "sigma_rasio": {
+   "LAI28": 0.12402652942012045,
+   "LAIFL": 0.22061731573020285,
+   "TAGP28": 0.17338258274694146,
+   "TAGPFL": 0.2542755985146825
+  }
+ },
+ "final": {
+  "model": "Wofost81_NWLP_CWB_CNB",
+  "parameter": {
+   "NSOILBASE": 93.47360873735872,
+   "N_recovery": 0.446133460305299
+  },
+  "NSOILBASE_FR": 0.01,
+  "NMAXSO": 0.0144,
+  "RGRLAI_MIN_FR": 0.5,
+  "alasan": "AICc standar 4.47 vs ekstensi 5.30 (k=3, NPART=0): perbedaan <2 sehingga model yang lebih sederhana dipilih; ekstensi dipakai untuk analisis sensitivitas struktur (bentuk respons LAI)."
+ },
+ "AICc_ekstensi_k3": 5.3
+}

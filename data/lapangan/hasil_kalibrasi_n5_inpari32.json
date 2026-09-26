@@ -1,0 +1,320 @@
+{
+ "Wofost81_NWLP_CWB_CNB": {
+  "label": "WOFOST 8.1 standar",
+  "parameter": {
+   "NSOILBASE": 90.9397085779488,
+   "N_recovery": 0.5210051884842201
+  },
+  "SE": {
+   "NSOILBASE": 15.830826273426878,
+   "N_recovery": 0.27679574920487526
+  },
+  "SSE": 13.574860285821506,
+  "n_obs": 14,
+  "k": 2,
+  "AICc": 18.665769376730598,
+  "AICc_lama_nlnSSE": 4.65918050874676,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4552,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 11171,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.961,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.946,
+    "LAIFL_sim": 4.77,
+    "Nupt": 102.9
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 6010,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 12981,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 4.97,
+    "Nupt": 150.9
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6749,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 13792,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.006,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.011,
+    "LAIFL_sim": 5.0,
+    "Nupt": 198.8
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 5415,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 12289,
+    "p_NSOILBASE": 123.355,
+    "p_N_recovery": 0.303
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5858,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 12803,
+    "p_NSOILBASE": 93.641,
+    "p_N_recovery": 0.439
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6785,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 13828,
+    "p_NSOILBASE": 89.571,
+    "p_N_recovery": 0.562
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 464.3608510630499,
+   "TAGP": 2245.1037095570146
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6406,
+    "TWSO_72PP": 7476,
+    "err_pct": -16.0,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 13121,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.62
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5696,
+    "TWSO_72PP": 6836,
+    "err_pct": -18.9,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 12131,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.53
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7224,
+    "TWSO_72PP": 9093,
+    "err_pct": 7.2,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14758,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.82
+   }
+  ]
+ },
+ "Wofost81_NWLP_CWB_CNB_NLV": {
+  "label": "WOFOST 8.1 + ekstensi N-daun (NLEAF = NSLA = NLAI)",
+  "parameter": {
+   "NSOILBASE": 100.50744985290729,
+   "N_recovery": 0.4256056900828859,
+   "NLEAF": 1.6376329579190454
+  },
+  "SE": {
+   "NSOILBASE": 46.30812755576048,
+   "N_recovery": 0.34625992048263676,
+   "NLEAF": 3.2568897048287693
+  },
+  "SSE": 10.579948411899418,
+  "n_obs": 14,
+  "k": 3,
+  "AICc": 18.979948411899414,
+  "AICc_lama_nlnSSE": 4.4786450912148625,
+  "tabel": [
+   {
+    "dosis": 23,
+    "TWSO_obs": 4653,
+    "TWSO_sim": 4457,
+    "TAGP_obs": 10065,
+    "TAGP_sim": 10619,
+    "rLAI28_obs": 0.745,
+    "rLAI28_sim": 0.984,
+    "rLAIFL_obs": 0.643,
+    "rLAIFL_sim": 0.674,
+    "rTAGPFL_obs": 0.815,
+    "rTAGPFL_sim": 0.882,
+    "LAIFL_sim": 3.31,
+    "Nupt": 110.3
+   },
+   {
+    "dosis": 115,
+    "TWSO_obs": 5951,
+    "TWSO_sim": 5944,
+    "TAGP_obs": 15539,
+    "TAGP_sim": 12893,
+    "rLAI28_obs": 1.0,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.0,
+    "rLAIFL_sim": 1.0,
+    "rTAGPFL_obs": 1.0,
+    "rTAGPFL_sim": 1.0,
+    "LAIFL_sim": 4.91,
+    "Nupt": 149.5
+   },
+   {
+    "dosis": 207,
+    "TWSO_obs": 6545,
+    "TWSO_sim": 6670,
+    "TAGP_obs": 15468,
+    "TAGP_sim": 13722,
+    "rLAI28_obs": 1.149,
+    "rLAI28_sim": 1.0,
+    "rLAIFL_obs": 1.117,
+    "rLAIFL_sim": 1.022,
+    "rTAGPFL_obs": 1.103,
+    "rTAGPFL_sim": 1.016,
+    "LAIFL_sim": 5.01,
+    "Nupt": 188.6
+   }
+  ],
+  "lodo": [
+   {
+    "ditahan": 23,
+    "TWSO_obs": 4653,
+    "TWSO_pred": 4542,
+    "TAGP_obs": 10065,
+    "TAGP_pred": 10949,
+    "p_NSOILBASE": 137.726,
+    "p_N_recovery": 0.231,
+    "p_NLEAF": 4.0
+   },
+   {
+    "ditahan": 115,
+    "TWSO_obs": 5951,
+    "TWSO_pred": 5960,
+    "TAGP_obs": 15539,
+    "TAGP_pred": 12936,
+    "p_NSOILBASE": 109.683,
+    "p_N_recovery": 0.368,
+    "p_NLEAF": 1.913
+   },
+   {
+    "ditahan": 207,
+    "TWSO_obs": 6545,
+    "TWSO_pred": 6733,
+    "TAGP_obs": 15468,
+    "TAGP_pred": 13771,
+    "p_NSOILBASE": 97.057,
+    "p_N_recovery": 0.48,
+    "p_NLEAF": 1.536
+   }
+  ],
+  "rmse_lodo": {
+   "TWSO": 126.15598809938962,
+   "TAGP": 1865.1965043930359
+  },
+  "transfer": [
+   {
+    "lokasi": "subang",
+    "TWSO_obs": 7624,
+    "TWSO_sim": 6326,
+    "TWSO_72PP": 7476,
+    "err_pct": -17.0,
+    "TAGP_obs": 17118,
+    "TAGP_sim": 13025,
+    "LAI67_obs": 5.04,
+    "LAI67_sim": 4.62
+   },
+   {
+    "lokasi": "indramayu",
+    "TWSO_obs": 7025,
+    "TWSO_sim": 5626,
+    "TWSO_72PP": 6836,
+    "err_pct": -19.9,
+    "TAGP_obs": 14087,
+    "TAGP_sim": 12005,
+    "LAI67_obs": 4.5,
+    "LAI67_sim": 4.48
+   },
+   {
+    "lokasi": "bandung",
+    "TWSO_obs": 6739,
+    "TWSO_sim": 7131,
+    "TWSO_72PP": 9093,
+    "err_pct": 5.8,
+    "TAGP_obs": 15107,
+    "TAGP_sim": 14669,
+    "LAI67_obs": 4.62,
+    "LAI67_sim": 4.84
+   }
+  ]
+ },
+ "pengaturan": {
+  "AMAX_REF": "mengikuti AMAXTB@y",
+  "NPART": 0.0,
+  "NSOILBASE_FR": 0.01,
+  "NAVAILI": 0.0,
+  "NMAXSO": 0.0144,
+  "RGRLAI_MIN_FR": 0.5,
+  "pembagian_N_HST": [
+   7,
+   28,
+   42
+  ],
+  "observasi_rasio": {
+   "LAI28": {
+    "23": 0.7451343836886005,
+    "207": 1.149212233549583
+   },
+   "LAIFL": {
+    "23": 0.6433508432402544,
+    "207": 1.116671274536909
+   },
+   "TAGP28": {
+    "23": 0.7402616492723798,
+    "207": 1.168308099367926
+   },
+   "TAGPFL": {
+    "23": 0.8153283476172279,
+    "207": 1.1027075713739831
+   }
+  },
+  "sigma_rasio": {
+   "LAI28": 0.12402652942012045,
+   "LAIFL": 0.22061731573020285,
+   "TAGP28": 0.17338258274694146,
+   "TAGPFL": 0.2542755985146825
+  }
+ },
+ "final": {
+  "utama": "Wofost81_NWLP_CWB_CNB",
+  "std": {
+   "NSOILBASE": 90.9397085779488,
+   "N_recovery": 0.5210051884842201
+  },
+  "ext": {
+   "NSOILBASE": 100.50744985290729,
+   "N_recovery": 0.4256056900828859,
+   "NLEAF": 1.6376329579190454
+  },
+  "AMAX_REF": "mengikuti AMAXTB@y (36.1)",
+  "NSOILBASE_range": "0-400 (validasi PCSE diperlebar)"
+ }
+}

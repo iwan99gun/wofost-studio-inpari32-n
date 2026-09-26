@@ -1,0 +1,87 @@
+{
+  "sumber": "Agustiani et al. 2018, Eur. J. Agron. 101:10-19, doi:10.1016/j.eja.2018.08.002 (Fig. 3 didigitasi visual; Tabel 2; teks 2.2.1)",
+  "lokasi": {
+    "Subang": {
+      "lat": -6.624,
+      "lon": 107.746,
+      "simbol": "segitiga"
+    },
+    "Indramayu": {
+      "lat": -6.518,
+      "lon": 108.291,
+      "simbol": "persegi"
+    },
+    "Bandung": {
+      "lat": -7.011,
+      "lon": 107.746,
+      "simbol": "lingkaran",
+      "catatan": "cekaman air saat pengisian biji (titik dilingkari di Fig. 3)"
+    }
+  },
+  "tanggal_tanam_pindah_asumsi": "2016-05-01",
+  "tanggal_semai_asumsi": "2016-04-10",
+  "varietas": "Inpari 32 (Ciherang x IRBB64); basis WOFOST: Rice_IR72 + override TSUM1/TSUM2 dari ORYZA v3",
+  "tsum_dari_oryza": {
+    "TSUM1": 1236,
+    "TSUM2": 650,
+    "Tbase": 8,
+    "Topt": 30,
+    "Thigh": 42.5
+  },
+  "pupuk": "N 126, P 11, K 25 kg/ha; irigasi genangan 5 cm (potensial -> pakai Wofost72_PP)",
+  "kepadatan": "21 hills/m2 (perlakuan kalibrasi), 4 ulangan, plot 30 m2",
+  "hasil_gabah_rentang_Mg_ha": [
+    7.8,
+    10.0
+  ],
+  "sd_observasi_percobaan": {
+    "TAGP_Mg_ha": 1.1,
+    "batang_Mg_ha": 0.6,
+    "LAI": 0.2
+  },
+  "keterbatasan": [
+    "tanggal tanam tidak dilaporkan (asumsi 1 Mei 2016)",
+    "hasil gabah per lokasi tidak dilaporkan terpisah (hanya rentang 7.8-10 Mg/ha)",
+    "Bandung mengalami cekaman air saat pengisian biji",
+    "nilai dibaca dari grafik lewat digitasi piksel (bukan tabel); ketidakpastian didominasi SD percobaan (TAGP 1.1, batang 0.6, LAI 0.2)",
+    "tanggal tanam: sensitivitas 1 Apr-30 Jun 2016 -> fenologi HST +/-1-2 hari, hasil +/-10 % (sensitivitas_tanggal_tanam_2016.csv)"
+  ],
+  "metode_digitasi": "piksel: deteksi marker berwarna, kalibrasi 4 tick mayor sumbu-y, klasifikasi bentuk dari rasio isi; +/- 3 px + SD percobaan",
+  "makalah_pendamping": "Agustiani et al. 2018, J. Penelitian Pertanian Tanaman Pangan 2(3):145-153, DOI 10.21082/JPPTP.V2N3.2018.P145-153 (tanggal tanam kemungkinan di Bahan dan Metode)",
+  "kalibrasi_gabungan": "hasil_kalibrasi_gabungan_inpari32.json",
+  "makalah_pendamping_isi": {
+    "desa_elevasi": {
+      "Bandung": "Bojongemas, Solokan Jeruk, 690 m dpl",
+      "Subang": "Gunungtua, Cijambe, 236 m dpl",
+      "Indramayu": "Wanasari, Bango Dua, 35 m dpl"
+    },
+    "hasil_GKG_t_ha_per_elevasi_rata2_varietas": {
+      "Subang": 8.78,
+      "Indramayu": 8.09,
+      "Bandung": 7.76
+    },
+    "hasil_Inpari32_rata2": 8.29,
+    "biomassa_menjelang_panen_g_m2": {
+      "Bandung": 1188.4,
+      "Subang": 1745.7,
+      "Indramayu": 1470.3
+    },
+    "luas_daun_cm2_m2_primordia_menjelang_panen": {
+      "Bandung": [
+        37159,
+        14716
+      ],
+      "Subang": [
+        51427,
+        23085
+      ],
+      "Indramayu": [
+        52383,
+        20278
+      ]
+    },
+    "tanggal_tanam": "TIDAK dilaporkan di kedua makalah; tetap asumsi 1 Mei 2016 dengan analisis sensitivitas",
+    "email_korespondensi": "wulan_bbpadi@yahoo.co.id (tercantum di makalah)"
+  },
+  "parameter_di_proyek": "final: SLA literatur (SLATB@ya 1.2, @yb 0.9) + multi-start (hasil_kalibrasi_multistart_inpari32.json); prior ORYZA disimpan di tsum_dari_oryza"
+}

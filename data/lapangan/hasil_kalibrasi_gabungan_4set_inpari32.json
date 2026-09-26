@@ -1,0 +1,174 @@
+{
+ "tsum_per_set": {
+  "subang": [
+   1555.8702379250628,
+   847.8887753643396
+  ],
+  "indramayu": [
+   1644.0894282413133,
+   906.9437937017192
+  ],
+  "bandung": [
+   1373.29368097513,
+   743.7832270643217
+  ],
+  "sukamandi_mh17": [
+   1574.6972672860236,
+   622.808702838997
+  ]
+ },
+ "gabungan_4set": {
+  "TSUM1": 1536.9876536068825,
+  "TSUM2": 780.3561247423444,
+  "AMAXTB@y": 0.6000163600977212,
+  "SPAN": 37.560957445855806,
+  "SLATB@y": 0.8000008141872338,
+  "TDWI": 108.56696365794492
+ },
+ "metrik": [
+  {
+   "variabel": "LAI",
+   "set": "subang",
+   "n": 2,
+   "RMSE": 0.0745,
+   "nRMSE_%": 2.9141,
+   "bias": 0.0491,
+   "R2": 0.9991
+  },
+  {
+   "variabel": "TAGP",
+   "set": "subang",
+   "n": 3,
+   "RMSE": 3163.9204,
+   "nRMSE_%": 38.5797,
+   "bias": -2038.8642,
+   "R2": 0.7938
+  },
+  {
+   "variabel": "TWSO",
+   "set": "subang",
+   "n": 1,
+   "RMSE": 1889.4825,
+   "nRMSE_%": 24.6991,
+   "bias": -1889.4825,
+   "R2": NaN
+  },
+  {
+   "variabel": "DVS",
+   "set": "subang",
+   "n": 2,
+   "RMSE": 0.0,
+   "nRMSE_%": 0.0,
+   "bias": 0.0,
+   "R2": 1.0
+  },
+  {
+   "variabel": "LAI",
+   "set": "indramayu",
+   "n": 2,
+   "RMSE": 0.1196,
+   "nRMSE_%": 5.2163,
+   "bias": -0.0144,
+   "R2": 0.9971
+  },
+  {
+   "variabel": "TAGP",
+   "set": "indramayu",
+   "n": 3,
+   "RMSE": 2192.2702,
+   "nRMSE_%": 31.886,
+   "bias": -1238.0518,
+   "R2": 0.8528
+  },
+  {
+   "variabel": "TWSO",
+   "set": "indramayu",
+   "n": 1,
+   "RMSE": 2605.4713,
+   "nRMSE_%": 34.0584,
+   "bias": -2605.4713,
+   "R2": NaN
+  },
+  {
+   "variabel": "DVS",
+   "set": "indramayu",
+   "n": 2,
+   "RMSE": 0.0754,
+   "nRMSE_%": 5.0296,
+   "bias": 0.0533,
+   "R2": 0.9772
+  },
+  {
+   "variabel": "LAI",
+   "set": "bandung",
+   "n": 3,
+   "RMSE": 1.0126,
+   "nRMSE_%": 43.8661,
+   "bias": 0.6759,
+   "R2": 0.7021
+  },
+  {
+   "variabel": "TAGP",
+   "set": "bandung",
+   "n": 3,
+   "RMSE": 1196.5219,
+   "nRMSE_%": 15.1216,
+   "bias": -965.7423,
+   "R2": 0.962
+  },
+  {
+   "variabel": "TWSO",
+   "set": "bandung",
+   "n": 1,
+   "RMSE": 1238.9924,
+   "nRMSE_%": 16.196,
+   "bias": -1238.9924,
+   "R2": NaN
+  },
+  {
+   "variabel": "DVS",
+   "set": "bandung",
+   "n": 2,
+   "RMSE": 0.1697,
+   "nRMSE_%": 11.3149,
+   "bias": -0.1561,
+   "R2": 0.8848
+  },
+  {
+   "variabel": "LAI",
+   "set": "sukamandi_mh17",
+   "n": 4,
+   "RMSE": 1.2586,
+   "nRMSE_%": 44.6918,
+   "bias": -0.8697,
+   "R2": 0.5768
+  },
+  {
+   "variabel": "TAGP",
+   "set": "sukamandi_mh17",
+   "n": 4,
+   "RMSE": 2810.653,
+   "nRMSE_%": 41.0401,
+   "bias": -2097.5792,
+   "R2": 0.8067
+  },
+  {
+   "variabel": "TWSO",
+   "set": "sukamandi_mh17",
+   "n": 1,
+   "RMSE": 356.4678,
+   "nRMSE_%": 5.99,
+   "bias": -356.4678,
+   "R2": NaN
+  },
+  {
+   "variabel": "DVS",
+   "set": "sukamandi_mh17",
+   "n": 2,
+   "RMSE": 0.112,
+   "nRMSE_%": 7.466,
+   "bias": -0.0485,
+   "R2": 0.9498
+  }
+ ]
+}

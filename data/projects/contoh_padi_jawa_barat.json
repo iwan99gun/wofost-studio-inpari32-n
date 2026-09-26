@@ -1,0 +1,46 @@
+{
+  "model_name": "Wofost72_WLP_FD",
+  "crop_name": "rice",
+  "variety_name": "Rice_IR72",
+  "crop_start_date": "2022-11-15",
+  "crop_start_type": "emergence",
+  "crop_end_date": "2023-04-30",
+  "crop_end_type": "maturity",
+  "max_duration": 300,
+  "soil": {
+    "SMW": 0.1,
+    "SMFCF": 0.3,
+    "SM0": 0.4,
+    "CRAIRC": 0.06,
+    "RDMSOL": 120,
+    "K0": 10.0,
+    "SOPE": 10.0,
+    "KSUB": 10.0
+  },
+  "site": {
+    "WAV": 10.0,
+    "SMLIM": 0.4,
+    "SSMAX": 0.0,
+    "SSI": 0.0,
+    "NOTINF": 0.0,
+    "IFUNRN": 0,
+    "CO2": 400.0
+  },
+  "crop_overrides": {},
+  "irrigation": [
+    {
+      "day": "2023-01-20",
+      "amount_cm": 3.0,
+      "efficiency": 0.7
+    }
+  ],
+  "weather": {
+    "source": "openmeteo",
+    "latitude": -6.9,
+    "longitude": 107.6,
+    "path": "",
+    "station": "",
+    "et_model": "PM",
+    "timezone": "Asia/Jakarta"
+  }
+}

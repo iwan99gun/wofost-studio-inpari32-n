@@ -1,0 +1,101 @@
+{
+ "parameter_A_tanpa_PART_DELAY": {
+  "AMAXTB@y": 1.1468494543938017,
+  "SPAN": 35.776373590979034,
+  "TDWI": 249.81122481813603,
+  "RGRLAI": 0.002752706418427655
+ },
+ "parameter_B_dengan_PART_DELAY": {
+  "TSUM1": 1365.30912,
+  "TSUM2": 796.02769,
+  "SLATB@ya": 1.2,
+  "SLATB@yb": 0.9,
+  "AMAXTB@y": 1.3659401481054732,
+  "SPAN": 33.155440047913075,
+  "TDWI": 127.11208438319957,
+  "RGRLAI": 0.003458436873253312,
+  "PART_DELAY": 0.5665655802064307
+ },
+ "SSE_A": 83.64418466561351,
+ "AICc_A": 93.38331510039612,
+ "SSE_B": 46.41480658681076,
+ "AICc_B": 59.14207931408349,
+ "n_obs": 28,
+ "detail_per_lokasi": [
+  {
+   "lokasi": "subang",
+   "TAGP_obs": 17118,
+   "TAGP_A_tanpaPD": 15566,
+   "TAGP_B_PART_DELAY": 16273,
+   "TAGP_errA_%": -9.1,
+   "TAGP_errB_%": -4.9,
+   "TWST_obs": 7515,
+   "TWST_A_tanpaPD": 4949,
+   "TWST_B_PART_DELAY": 6507,
+   "TWST_errA_%": -34.1,
+   "TWST_errB_%": -13.4,
+   "TWSO_obs": 7624,
+   "TWSO_A_tanpaPD": 7943,
+   "TWSO_B_PART_DELAY": 7102,
+   "TWSO_errA_%": 4.2,
+   "TWSO_errB_%": -6.9
+  },
+  {
+   "lokasi": "indramayu",
+   "TAGP_obs": 14087,
+   "TAGP_A_tanpaPD": 14433,
+   "TAGP_B_PART_DELAY": 15054,
+   "TAGP_errA_%": 2.5,
+   "TAGP_errB_%": 6.9,
+   "TWST_obs": 5765,
+   "TWST_A_tanpaPD": 4677,
+   "TWST_B_PART_DELAY": 6113,
+   "TWST_errA_%": -18.9,
+   "TWST_errB_%": 6.0,
+   "TWSO_obs": 7025,
+   "TWSO_A_tanpaPD": 7201,
+   "TWSO_B_PART_DELAY": 6399,
+   "TWSO_errA_%": 2.5,
+   "TWSO_errB_%": -8.9
+  },
+  {
+   "lokasi": "bandung",
+   "TAGP_obs": 15107,
+   "TAGP_A_tanpaPD": 18115,
+   "TAGP_B_PART_DELAY": 18911,
+   "TAGP_errA_%": 19.9,
+   "TAGP_errB_%": 25.2,
+   "TWST_obs": 7408,
+   "TWST_A_tanpaPD": 5533,
+   "TWST_B_PART_DELAY": 7407,
+   "TWST_errA_%": -25.3,
+   "TWST_errB_%": -0.0,
+   "TWSO_obs": 6739,
+   "TWSO_A_tanpaPD": 9594,
+   "TWSO_B_PART_DELAY": 8508,
+   "TWSO_errA_%": 42.4,
+   "TWSO_errB_%": 26.3
+  }
+ ],
+ "catatan": "A = refit SPAN/AMAXTB@y/TDWI/RGRLAI tanpa PART_DELAY (k=4); B = + PART_DELAY (k=5), TSUM/SLATB tetap.",
+ "nsoilbase_check": 115.873,
+ "n_recovery_check": 0.765,
+ "ltfe_check": {
+  "S2022": {
+   "Y0_obs": 3449,
+   "Y0_sim": 3611,
+   "err_pct": 4.7,
+   "rLAI21": 1.0,
+   "rLAI35": 0.998,
+   "rLAI60": 0.921
+  },
+  "S2020": {
+   "Y0_obs": 3268,
+   "Y0_sim": 3117,
+   "err_pct": -4.6,
+   "rLAI21": 1.0,
+   "rLAI35": 0.994,
+   "rLAIFL": 0.871
+  }
+ }
+}
