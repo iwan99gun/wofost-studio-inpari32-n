@@ -274,5 +274,17 @@
   "cite": "Liu et al., 2026",
   "sortkey": "liu 2026",
   "doi": "10.1007/s11104-026-08939-0"
+ },
+ "terbraak2006": {
+  "ref": "ter Braak, C.J.F., 2006. A Markov Chain Monte Carlo version of the genetic algorithm Differential Evolution: easy Bayesian computing for real parameter spaces. Statistics and Computing 16, 239-249. https://doi.org/10.1007/s11222-006-8769-1",
+  "cite": "ter Braak, 2006",
+  "sortkey": "ter braak 2006",
+  "doi": "10.1007/s11222-006-8769-1"
+ },
+ "terbraak2008": {
+  "ref": "ter Braak, C.J.F., Vrugt, J.A., 2008. Differential Evolution Markov Chain with snooker updater and fewer chains. Statistics and Computing 18, 435-446. https://doi.org/10.1007/s11222-008-9104-9",
+  "cite": "ter Braak and Vrugt, 2008",
+  "sortkey": "ter braak 2008",
+  "doi": "10.1007/s11222-008-9104-9"
  }
 }

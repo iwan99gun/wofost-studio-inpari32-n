@@ -182,8 +182,13 @@ P("Target journal: European Journal of Agronomy (alternatives: Agricultural Syst
 TITLE = ("Nitrogen-limited WOFOST 8.1 for tropical transplanted rice: parameter-consistency fixes, a leaf-level "
          "nitrogen extension and independent omission-plot validation in West Java, Indonesia")
 P(TITLE, bold=True, size=15, align=WD_ALIGN_PARAGRAPH.CENTER)
-P("[Author 1]ᵃ*, [Author 2]ᵇ, [Author 3]ᵃ", align=WD_ALIGN_PARAGRAPH.CENTER, verify=True)
-P("ᵃ [Affiliation, address, country]\nᵇ [Affiliation, address, country]\n* Corresponding author: [e-mail]", size=9.5, align=WD_ALIGN_PARAGRAPH.CENTER, verify=True)
+P("Zainal Arifinᵃ*, Iwan Gunawanᵇ*", bold=True, size=11, align=WD_ALIGN_PARAGRAPH.CENTER)
+PR([("ᵃ ", ""), ("Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
+PR([("ᵇ ", ""), ("Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
+P("ORCID: Zainal Arifin https://orcid.org/0009-0008-0345-3167; Iwan Gunawan https://orcid.org/0000-0002-2784-4436",
+  size=9, align=WD_ALIGN_PARAGRAPH.CENTER)
+P("* Corresponding authors: Zainal Arifin, zainal.arifin@staff.uns.ac.id; Iwan Gunawan, iwan99gun@unkhair.ac.id",
+  size=9.5, align=WD_ALIGN_PARAGRAPH.CENTER)
 
 # ---- blok 1: pustaka terverifikasi, highlights, abstrak, pendahuluan (disisipkan ke buat_naskah.py) ----
 import re as _re
@@ -418,10 +423,13 @@ H("2.9. Uncertainty and sensitivity", 2)
 P("Parameter uncertainty was quantified by staged Bayesian inference with the affine-invariant ensemble sampler "
   + C("goodman2010") + " implemented in emcee (Foreman-Mackey et al., 2013), as in Bayesian calibration of rice models "
   + C("iizumi2009") + ". Stage 1 sampled AMAXTB@y, SPAN, TDWI and RGRLAI against the 2016 data with uniform priors "
-  "(24 walkers × 600 steps). The stage-1 posterior of SPAN and AMAXTB@y, the two potential-production parameters with the "
+  "(24 walkers × 1000 steps). The stage-1 posterior of SPAN and AMAXTB@y, the two potential-production parameters with the "
   "largest Sobol indices, was approximated by a bivariate normal distribution and used as the prior in stage 2, which "
-  "sampled them jointly with the N parameters (24 walkers × 800 steps); uncertainty from Step 1 was thereby propagated to "
-  "the N parameters and predictions. Convergence was assessed with the integrated autocorrelation time τ (a chain length "
+  "sampled them jointly with the N parameters (24 walkers; 800 steps for the standard model); uncertainty from Step 1 was thereby "
+  "propagated to the N parameters and predictions. Because the extension posterior contains a ridge along which NLEAF, "
+  "NSOILBASE and N recovery trade off (Section 4.2), the default stretch move mixed slowly for this stage; it was "
+  "therefore sampled with differential-evolution moves (80% DEMove, 20% snooker move; " + C("terbraak2006", "terbraak2008") + "), initialised overdispersed around the posterior of a preliminary 800-step run, and extended "
+  "in blocks of 100 steps until split-R̂ ≤ 1.05 and the chain exceeded 50τ (reached at 1200 steps). Convergence was assessed with the integrated autocorrelation time τ (a chain length "
   "above 50τ is recommended for emcee), the effective sample size and split-R̂ computed across walkers "
   + C("gelman1992") + ", with a burn-in of max(100, 5τ). Sixty-four posterior draws were propagated to the LTFE, and "
   "predictive skill was scored with the continuous ranked probability score (CRPS) and 95% interval coverage "
@@ -585,16 +593,14 @@ P(f"At the three farmers' fields of 2016, the Sukamandi N supply led to yield un
   "publications, so soil tests did not explain the difference.")
 
 H("3.5. Uncertainty and sensitivity", 2)
-P(f"Convergence diagnostics differed among stages (Table S4). Stage 1 (production parameters, 1000 steps) reached "
-  f"split-R̂ ≤ {max(DG['tahap1']['rhat'].values()):.2f} and a chain length of {DG['tahap1']['langkah_per_tau']:.0f}τ. "
-  f"Stage 2 for the standard model (NSOILBASE and N recovery jointly with SPAN and AMAXTB@y; 800 steps) reached "
-  f"split-R̂ ≤ {max(DG['std']['rhat'].values()):.2f} and {DG['std']['langkah_per_tau']:.0f}τ, within the range usually "
-  f"considered acceptable. Stage 2 for the NLEAF extension did not fully converge by the same criterion (split-R̂ up to "
-  f"{max(DG['ext']['rhat'].values()):.2f} for N recovery, {DG['ext']['langkah_per_tau']:.0f}τ), reflecting the weak "
-  "identifiability of NLEAF discussed in Section 4.2: because NLEAF, NSOILBASE and N recovery trade off along a ridge of "
-  "similar likelihood, the chains explored this ridge more slowly than the other parameters. The reported intervals for "
-  "the extension are therefore wider than with full convergence and should be read as indicative of the order of "
-  "magnitude of the uncertainty rather than as exact bounds; this is noted as a limitation in Section 4.7. "
+P(f"All stages converged (Table S4). Stage 1 (production parameters, 1000 steps) reached "
+  f"split-R̂ ≤ {max(DG['tahap1']['rhat'].values()):.2f} and a chain length of {DG['tahap1']['langkah_per_tau']:.0f}τ, and stage 2 for the standard model "
+  f"(NSOILBASE and N recovery jointly with SPAN and AMAXTB@y; 800 steps) split-R̂ ≤ {max(DG['std']['rhat'].values()):.2f} "
+  f"and {DG['std']['langkah_per_tau']:.0f}τ. For the NLEAF extension a preliminary 800-step run with the default stretch move had not "
+  "converged (split-R̂ up to 1.20), because NLEAF, NSOILBASE and N recovery trade off along a ridge of similar "
+  "likelihood (Section 4.2) that the stretch move explored slowly; with differential-evolution moves (Section 2.9) "
+  f"the chains converged cleanly (split-R̂ ≤ {max(DG['ext']['rhat'].values()):.2f}, "
+  f"{DG['ext']['langkah_per_tau']:.0f}τ, minimum effective sample size {min(DG['ext']['ess'].values()):.0f}). "
   f"Stage 1 constrained SPAN to {ci('tahap1', 'SPAN')} d and AMAXTB@y to {ci('tahap1', 'AMAXTB@y', f2)}. "
   f"With the bound removed, NSOILBASE had a 95% interval of {ci('std', 'NSOILBASE')} kg N ha⁻¹ and N recovery of "
   f"{ci('std', 'N_recovery', f2)} in the standard model, and the two were negatively correlated (r = {rhoNS:.2f}); NLEAF "
@@ -796,13 +802,12 @@ P("Gridded weather products differ from station records, and these differences p
   "therefore the most cost-effective improvement for any future field evaluation.")
 
 H("4.7. Limitations", 2)
-P(f"The MCMC chain for the NLEAF extension did not reach full convergence (split-R̂ up to {max(DG['ext']['rhat'].values()):.2f}; "
-  "Section 3.5, Table S4), so its posterior intervals are approximate; a longer run, a reparameterisation that separates "
-  "NLEAF from NSOILBASE and N recovery, or a larger N-rate dataset would be needed to resolve this ridge in the "
-  "likelihood. The point estimate and the qualitative conclusion, that the extension improves the independent leaf-area "
-  "response, are not expected to change, because they are also supported by the leave-one-dose-out cross-validation, the "
-  "blind LTFE prediction and the observation-model robustness check (Table S3), none of which depend on chain "
-  "convergence. All data are secondary, several were digitised from figures, and no transplanting date was reported; the effects of "
+P(f"Although the MCMC chains converged for all stages (split-R̂ ≤ {max(DG['ext']['rhat'].values()):.2f} for the extension; "
+  f"Section 3.5, Table S4), the posterior of NLEAF remains wide ({ci('ext', 'NLEAF', f2)}) because NLEAF, NSOILBASE "
+  "and N recovery trade off along a ridge of similar likelihood; a larger N-rate dataset, or an independent measurement "
+  "of the indigenous N supply, would be needed to narrow it. The point estimate and the qualitative conclusion, that the "
+  "extension improves the independent leaf-area response, do not depend on this width: they are also supported by the "
+  "leave-one-dose-out cross-validation, the blind LTFE prediction and the observation-model robustness check (Table S3). All data are secondary, several were digitised from figures, and no transplanting date was reported; the effects of "
   "these assumptions were quantified but cannot be eliminated. The independent validation used Inpari-33 rather than "
   "Inpari-32, although results were robust to eight variety assumptions. SPAD was available only for 2020 and is a proxy "
   "rather than a measurement of leaf N per area. The NLEAF extension was supported by independent data but rests on three "
@@ -825,14 +830,24 @@ P("With parameter consistency enforced, WOFOST 8.1 reproduced the N response of 
 
 H("Software and data availability")
 P("WOFOST Studio (Python 3.12, PCSE 6.0.13, PySide6), the extension module, all datasets extracted from the literature "
-  "(with source, table/figure and digitising method for every value), analysis scripts and figure scripts will be "
-  "deposited in a public repository with a DOI upon acceptance: [repository URL / Zenodo DOI].", verify=True)
+  "(with source, table/figure and digitising method for every value), analysis scripts and figure scripts are "
+  "available at https://github.com/iwan99gun/wofost-studio-inpari32-n under the MIT licence, and are permanently "
+  "archived at Zenodo (version 1.0.0): https://doi.org/10.5281/zenodo.22969839.")
 H("CRediT authorship contribution statement")
-P("[To be completed by the authors.]", verify=True)
+P("Zainal Arifin: Investigation (literature search and reference compilation), Writing – original draft, Writing – review & editing. "
+  "Iwan Gunawan: Software (development of WOFOST Studio and the nitrogen extension), Investigation (literature search and reference compilation), "
+  "Writing – original draft, Writing – review & editing.")
 H("Declaration of competing interest")
-P("[To be completed by the authors.]", verify=True)
+P("The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.")
 H("Acknowledgements")
-P("[To be completed by the authors.]", verify=True)
+P("The authors thank the laboratory of the Department of Agribusiness, Vocational School, Universitas Sebelas Maret, and the laboratory of the Department of Mechanical Engineering, Universitas Khairun, for their support throughout the completion of this work.")
+
+H("Declaration of generative AI and AI-assisted technologies")
+P("During the preparation of this work the authors used Claude (Anthropic) to assist in developing the WOFOST Studio "
+  "software and analysis scripts, and in drafting and editing the manuscript text. All model formulations, calibration "
+  "choices and interpretations were directed and verified by the authors, and every numerical result reported here is "
+  "generated by the openly archived scripts. After using this tool, the authors reviewed and edited the content as "
+  "needed and take full responsibility for the content of the publication.")
 
 # ================================================================== pustaka
 H("References")
@@ -883,6 +898,10 @@ REFS = [
     ("Susanti, Z., Hikmah, Z.M., Sastro, Y., Sasmita, P., Sembiring, H., 2023. The combined application of organic and "
      "inorganic fertilizers to improve fertility of degraded soil and sustainable yield in intensive irrigated rice systems. "
      "IOP Conf. Ser.: Earth Environ. Sci. 1165, 012026. https://doi.org/10.1088/1755-1315/1165/1/012026", False),
+    ("ter Braak, C.J.F., 2006. A Markov Chain Monte Carlo version of the genetic algorithm Differential Evolution: "
+     "easy Bayesian computing for real parameter spaces. Stat. Comput. 16, 239–249. https://doi.org/10.1007/s11222-006-8769-1", False),
+    ("ter Braak, C.J.F., Vrugt, J.A., 2008. Differential Evolution Markov Chain with snooker updater and fewer chains. "
+     "Stat. Comput. 18, 435–446. https://doi.org/10.1007/s11222-008-9104-9", False),
     ("van Diepen, C.A., Wolf, J., van Keulen, H., Rappoldt, C., 1989. WOFOST: a simulation model of crop production. "
      "Soil Use Manage. 5, 16–24.", False),
     ("van Ittersum, M.K., Cassman, K.G., Grassini, P., Wolf, J., Tittonell, P., Hochman, Z., 2013. Yield gap analysis with "
@@ -956,7 +975,7 @@ TABLE("Table S3. Robustness of calibration and independent prediction to the obs
         {"std": "8.1", "ext": "8.1+NLEAF"}[r["model"]], f"{r['NSOILBASE']:.0f}", f"{r['N_recovery']:.2f}",
         (f"{r['NLEAF']:.2f}" if "NLEAF" in r else "–"), f"{r['err_Y0_2022']:+.1f}", f"{r['err_Y0_2020']:+.1f}", f"{r['rmse_rasio_LAI']:.2f}"] for r in ROB],
       widths=[3.0, 1.8, 1.8, 1.6, 1.4, 2.2, 2.2, 2.0], fs=8)
-TABLE("Table S4. MCMC convergence diagnostics per stage (emcee, affine-invariant ensemble sampler).",
+TABLE("Table S4. MCMC convergence diagnostics per stage (emcee ensemble sampler).",
       ["Stage", "Walkers × steps", "Burn-in", "Max split-R̂", "Min chain length (τ)", "Min ESS", "Acceptance"],
       [["1: production parameters", f"{POST['tahap1']['n_walker']} × {POST['tahap1']['n_step']}", str(DG['tahap1']['burn']),
         f"{max(DG['tahap1']['rhat'].values()):.2f}", f"{DG['tahap1']['langkah_per_tau']:.0f}", f"{min(DG['tahap1']['ess'].values()):.0f}",
@@ -970,7 +989,8 @@ TABLE("Table S4. MCMC convergence diagnostics per stage (emcee, affine-invariant
       widths=[4.5, 2.4, 1.6, 2.2, 2.8, 1.8, 1.8], fs=8,
       note="Split-R̂ computed across walkers treated as chains (Gelman and Rubin, 1992); τ, integrated autocorrelation time; "
            "ESS, effective sample size. A split-R̂ close to 1 and a chain length well above the autocorrelation time indicate "
-           "convergence; the NLEAF extension (stage 2, ext) did not fully meet this criterion (Section 3.5, 4.7).")
+           "convergence. Stages 1 and 2 (std) used the affine-invariant stretch move; stage 2 (ext) used "
+           "differential-evolution moves because of the NLEAF–NSOILBASE–N-recovery ridge (Section 2.9).")
 
 docx_path = OUT / ("draft_WOFOST81_Nrice_WestJava_versi_baca.docx" if BACA else "draft_WOFOST81_Nrice_WestJava.docx")
 doc.save(docx_path)
