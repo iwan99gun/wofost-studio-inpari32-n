@@ -20,6 +20,13 @@ keywords:
   - sensitivity analysis
   - data assimilation
 authors:
+  - family-names: "Arifin"
+    given-names: "Zainal"
+    orcid: "https://orcid.org/0009-0008-0345-3167"
+    email: "zainal.arifin@staff.uns.ac.id"
+    affiliation: "Universitas Sebelas Maret, Surakarta, Indonesia"
   - family-names: "Gunawan"
     given-names: "Iwan"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0000-0002-2784-4436"
+    email: "iwan99gun@unkhair.ac.id"
+    affiliation: "Universitas Khairun, Ternate, Indonesia"
