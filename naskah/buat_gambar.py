@@ -182,7 +182,7 @@ def fig5():
             ax[0].errorbar(o, b["median"] / 1e3, yerr=[[(b["median"] - b["q2_5"]) / 1e3], [(b["q97_5"] - b["median"]) / 1e3]],
                            fmt=mk, color=c, ms=4, capsize=2, lw=0.7, label=f"{lab}, {'8.1' if m == 'std' else '8.1+NLEAF'}")
     ax[0].plot([2, 4.2], [2, 4.2], "k--", lw=0.6); ax[0].set_xlim(2, 4.2); ax[0].set_ylim(2, 4.2)
-    ax[0].set_xlabel("Observed 0-N yield (t ha$^{-1}$)"); ax[0].set_ylabel("Blind prediction (t ha$^{-1}$)"); ax[0].legend(fontsize=5.6, frameon=False)
+    ax[0].set_xlabel("Observed 0-N yield (t ha$^{-1}$)"); ax[0].set_ylabel("Blind prediction (t ha$^{-1}$)"); ax[0].legend(fontsize=5.6, loc="upper left", frameon=True, framealpha=1.0, edgecolor="none", borderpad=0.4, handletextpad=0.5)
     vals = [fin["std"]["NSOILBASE"], V["S2022"]["std"]["NSOILBASE_B"], V["S2020"]["std"]["NSOILBASE_B"]]
     ax[1].bar(["Calib.\nWS17/18", "Omis.\nDS2022", "Omis.\n2020"], vals, color=["0.6", C_STD, C_EXT], width=0.6)
     lo, hi = P["std"]["posterior"]["NSOILBASE"]["q2_5"], P["std"]["posterior"]["NSOILBASE"]["q97_5"]
