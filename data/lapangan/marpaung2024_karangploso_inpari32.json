@@ -1,0 +1,67 @@
+{
+ "sumber": "Marpaung, W.M.R., Karyawati, A.S., Maghfoer, M.D., 2024. Effect combination of nitrogen fertilizer doses and plant growth promoting rhizobacteria (PGPR) concentrations on growth and yield of rice (Oryza sativa L.) Inpari 32 variety. Agro Bali: Agricultural Journal 7(2), 423-434. https://doi.org/10.37637/ab.v7i2.1597",
+ "lokasi": "Ampeldento, Karangploso, Kab. Malang, Jawa Timur; Mei-September 2023 (musim kemarau, El Nino)",
+ "koordinat_perkiraan": {"lat": -7.92, "lon": 112.65, "catatan": "desa Ampeldento, Karangploso; elevasi +-500 m dpl; koordinat tidak dilaporkan di artikel"},
+ "desain": "RAK 10 perlakuan x 3 ulangan; P1 kontrol TANPA pupuk apa pun; P2-P10 = N 50/100/150 kg/ha (urea) x PGPR 5/10/20 ml/l; SP36 100 kg/ha + KCl 75 kg/ha pada perlakuan dipupuk; bibit 14 hari, tanam pindah 25x25 cm 2 bibit/lubang (16 rumpun/m2); panen 120 HST",
+ "catatan_konfounder": [
+  "Kontrol (0 N) juga tidak menerima P, K, dan PGPR -> bukan petak omisi-N murni; respons mencakup efek P/K/PGPR",
+  "Semua petak berpupuk menerima PGPR (5-20 ml/l) -> efek PGPR tidak terpisahkan dari efek N, tetapi antar-konsentrasi PGPR tidak berbeda nyata pada hampir semua peubah (HSD 5%)",
+  "Tanggal tanam pindah tidak dilaporkan (asumsi pertengahan Mei 2023, diuji sensitivitasnya); jadwal pemupukan N tidak dilaporkan (asumsi 3 kali: 7, 30, 45 HST)",
+  "Luas daun & berat kering per rumpun; konversi LAI = cm2/rumpun / 625; biomassa kg/ha = g/rumpun x 16 x 10"
+ ],
+ "ekstraksi": "semua nilai disalin langsung dari teks PDF (Tabel 3,4,5,7,9), bukan digitalisasi grafik",
+ "perlakuan_N_kg_ha": {"P1": 0, "P2": 50, "P3": 50, "P4": 50, "P5": 100, "P6": 100, "P7": 100, "P8": 150, "P9": 150, "P10": 150},
+ "tabel3_luas_daun_cm2_per_rumpun": {
+  "umur_hst": [14, 28, 42, 56],
+  "P1": [39.09, 313.80, 1002.81, 1509.55],
+  "P2": [48.22, 451.20, 2070.40, 2576.21],
+  "P3": [42.18, 451.20, 1824.83, 2222.17],
+  "P4": [42.24, 439.87, 1925.78, 2696.34],
+  "P5": [46.62, 463.80, 2516.06, 2901.07],
+  "P6": [50.65, 476.93, 1962.05, 2468.03],
+  "P7": [45.61, 445.07, 1905.01, 2345.60],
+  "P8": [49.11, 436.00, 1934.50, 2504.37],
+  "P9": [49.87, 439.73, 1847.72, 2456.66],
+  "P10": [46.30, 448.93, 1769.51, 2390.24],
+  "CV_persen": [10.41, 9.38, 13.32, 10.04]
+ },
+ "tabel4_jumlah_anakan_per_rumpun": {
+  "umur_hst": [14, 28, 42, 56],
+  "P1": [2.73, 8.07, 14.47, 23.33],
+  "P2": [2.80, 13.67, 24.80, 37.27],
+  "P3": [3.13, 14.63, 23.73, 38.07],
+  "P4": [3.33, 16.13, 25.20, 39.20],
+  "P5": [3.13, 15.40, 24.73, 43.40],
+  "P6": [3.00, 15.33, 22.07, 41.13],
+  "P7": [3.20, 14.60, 23.27, 40.93],
+  "P8": [3.27, 13.53, 22.53, 39.33],
+  "P9": [2.93, 13.93, 23.60, 39.13],
+  "P10": [2.87, 13.13, 21.13, 38.20],
+  "CV_persen": [8.36, 10.16, 6.91, 10.91]
+ },
+ "tabel5_berat_kering_g_per_rumpun": {
+  "umur_hst": [14, 28, 42, 56],
+  "P1": [0.35, 9.49, 19.71, 42.69],
+  "P2": [0.43, 15.71, 29.81, 66.89],
+  "P3": [0.47, 15.92, 30.23, 63.58],
+  "P4": [0.48, 17.24, 31.24, 67.81],
+  "P5": [0.69, 16.44, 34.13, 73.27],
+  "P6": [0.67, 19.34, 35.91, 75.03],
+  "P7": [0.71, 18.44, 37.24, 67.35],
+  "P8": [0.57, 19.61, 32.64, 71.72],
+  "P9": [0.53, 18.75, 33.50, 78.33],
+  "P10": [0.71, 18.48, 34.97, 85.29],
+  "CV_persen": [25.52, 12.42, 18.61, 10.10]
+ },
+ "tabel7_hasil": {
+  "gabah_giling_kering_g_m2": {"P1": 502.0, "P2": 803.3, "P3": 907.0, "P4": 913.3, "P5": 896.9, "P6": 933.3, "P7": 824.7, "P8": 930.0, "P9": 846.7, "P10": 882.3},
+  "hasil_ton_ha": {"P1": 5.00, "P2": 8.03, "P3": 9.07, "P4": 9.13, "P5": 8.96, "P6": 9.33, "P7": 8.25, "P8": 9.30, "P9": 8.47, "P10": 8.82},
+  "CV_persen_hasil": 7.35,
+  "catatan": "GKG (kadar air giling, diasumsikan 14% -> bahan kering x0.86)"
+ },
+ "tabel9_N_jaringan": {
+  "N_jaringan_persen": {"P1": 2.06, "P2": 2.13, "P3": 2.80, "P4": 2.80, "P5": 2.09, "P6": 2.09, "P7": 2.62, "P8": 2.62, "P9": 2.28, "P10": 2.68},
+  "serapan_N_g_per_tanaman": {"P1": 0.47, "P2": 1.03, "P3": 1.23, "P4": 1.20, "P5": 1.23, "P6": 1.28, "P7": 1.59, "P8": 1.63, "P9": 1.52, "P10": 2.19},
+  "catatan": "umur pengambilan sampel tidak dinyatakan eksplisit di artikel"
+ }
+}

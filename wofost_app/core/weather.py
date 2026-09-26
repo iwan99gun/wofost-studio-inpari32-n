@@ -16,6 +16,28 @@ WEATHER_SOURCES = {
 }
 
 
+def _openmeteo_clip_rain():
+    """Subkelas OpenMeteo yang memangkas hujan harian ke batas validasi PCSE (25 cm/hari).
+    Hujan ekstrem tropis (>250 mm/hari) kadang muncul di arsip Open-Meteo dan membuat
+    WeatherDataContainer menolak seluruh unduhan; untuk sawah beririgasi pengaruh
+    pemangkasan pada neraca air praktis nol (limpasan)."""
+    import logging
+    from pcse import input as pin
+    from pcse.base import WeatherDataContainer
+
+    class OpenMeteoClipRain(pin.OpenMeteoWeatherDataProvider):
+        def _make_WeatherDataContainers(self, recs):
+            for rec in recs:
+                if rec.get("RAIN") is not None and rec["RAIN"] > 25.0:
+                    logging.getLogger(__name__).warning(
+                        "RAIN %.1f cm pada %s dipangkas ke 25 cm (batas PCSE)", rec["RAIN"], rec.get("DAY"))
+                    rec["RAIN"] = 25.0
+                wdc = WeatherDataContainer(**rec)
+                self._store_WeatherDataContainer(wdc, wdc.DAY)
+
+    return OpenMeteoClipRain
+
+
 def build_weather_provider(cfg: WeatherConfig, force_update: bool = False):
     """Kembalikan objek WeatherDataProvider PCSE sesuai konfigurasi."""
     from pcse import input as pin
@@ -26,7 +48,7 @@ def build_weather_provider(cfg: WeatherConfig, force_update: bool = False):
         for attempt in range(4):   # layanan daring kadang time-out; coba ulang dengan jeda
             try:
                 if cfg.source == "openmeteo":
-                    return pin.OpenMeteoWeatherDataProvider(
+                    return _openmeteo_clip_rain()(
                         latitude=float(cfg.latitude), longitude=float(cfg.longitude),
                         timezone=cfg.timezone or "UTC", ETmodel=cfg.et_model, force_update=force_update)
                 return pin.NASAPowerWeatherDataProvider(

@@ -193,6 +193,18 @@ P("* Corresponding authors: Zainal Arifin, zainal.arifin@staff.uns.ac.id; Iwan G
 # ---- blok 1: pustaka terverifikasi, highlights, abstrak, pendahuluan (disisipkan ke buat_naskah.py) ----
 import re as _re
 MEK = J("mekanisme_n_daun.json")
+MAR = J("validasi_marpaung_karangploso.json"); MRD = J("marpaung2024_karangploso_inpari32.json")
+_mo = MAR["observasi"]
+mar_rmse = {m: (sum((MAR[m]["rLAI"][a] - _mo["rLAI"][a]) ** 2 for a in ("28", "42", "56")) / 3) ** 0.5
+            for m in ("std", "ext")}
+_mnj = MRD["tabel9_N_jaringan"]["N_jaringan_persen"]
+mar_nj0 = _mnj["P1"]; mar_njF = sum(v for k, v in _mnj.items() if k != "P1") / 9
+_mt = {k: v[3] for k, v in MRD["tabel4_jumlah_anakan_per_rumpun"].items() if k.startswith("P")}
+_ml = {k: v[3] for k, v in MRD["tabel3_luas_daun_cm2_per_rumpun"].items() if k.startswith("P")}
+_m100 = [k for k, d in MRD["perlakuan_N_kg_ha"].items() if d == 100]
+mar_rtil = _mt["P1"] / (sum(_mt[k] for k in _m100) / 3)
+mar_rlpt = (_ml["P1"] / _mt["P1"]) / (sum(_ml[k] for k in _m100) / 3 / (sum(_mt[k] for k in _m100) / 3))
+MARU = MAR["pembaruan_NLEAF"]
 PUS = json.load(open(ROOT / "naskah" / "pustaka_terverifikasi.json", encoding="utf-8"))
 _FIXREF = {
     "iizumi2009": ("IIZUMI, T., YOKOZAWA, M., NISHIMORI, M.,", "Iizumi, T., Yokozawa, M., Nishimori, M.,"),
@@ -253,7 +265,8 @@ ABSTRACT = (
     f"leaf area by {min(lai_red_obs):.0f}–{max(lai_red_obs):.0f}%, mostly through smaller leaf area per tiller, whereas WOFOST 8.1 "
     f"kept leaf area and diluted specific leaf N by {min(sln_red_std):.0f}–{max(sln_red_std):.0f}%. A one-parameter "
     f"LINTUL3-type extension reversing this strategy reduced the error in the leaf-area response from {rm['std']:.2f} to "
-    f"{rm['ext']:.2f}. Indigenous N supply was stable over five years but not transferable to farmers' fields. Enforcing "
+    f"{rm['ext']:.2f}, and blindly reproduced the leaf-area response of a second, independent N-rate trial on the same "
+    f"variety in East Java (ratio RMSE {mar_rmse['ext']:.2f} versus {mar_rmse['std']:.2f} for the standard model). Indigenous N supply was stable over five years but not transferable to farmers' fields. Enforcing "
     "parameter consistency and representing leaf-area plasticity are prerequisites for simulating N responses of tropical rice.")
 P(ABSTRACT)
 N_ABS = len(ABSTRACT.split())
@@ -333,7 +346,7 @@ H("2.2. Data", 2)
 P("All data were extracted from peer-reviewed publications (Table 1). Values given only in figures were digitised at the "
   "pixel level with axis calibration on four major ticks, a procedure with high reported reliability " + C("drevon2017") + "; the digitising error (±3 px) was combined with the reported "
   "experimental standard deviation to weight observations. Transplanting dates were not reported for any dataset and "
-  "were assumed (1 May 2016; 22 November 2017; 1 May 2022; 2 August 2020); the sensitivity of all results to ±21 days "
+  "were assumed (1 May 2016; 22 November 2017; 1 May 2022; 2 August 2020; 15 May 2023); the sensitivity of all results to ±21 days "
   "was tested. Yields reported at 14% moisture were converted to dry matter (× 0.86). Leaf area per hill was converted "
   "to LAI with the reported planting density.")
 TABLE("Table 1. Datasets used for calibration and evaluation.",
@@ -345,12 +358,15 @@ TABLE("Table 1. Datasets used for calibration and evaluation.",
        ["Susanti et al. (2023)", "LTFE Sukamandi; DS 2022", "Inpari-33", "+PK (0 N) vs +NPK (140 kg N ha⁻¹)",
         "Grain; leaf area & biomass at 21/35/60 DAT", "Independent validation"],
        ["Hikmah et al. (2021)", "LTFE Sukamandi; Jul–Dec 2020", "Inpari-33", "0 N vs NPK (140 kg N ha⁻¹)",
-        "Grain; leaf area at 21/35 DAT and flowering", "Independent validation"]],
+        "Grain; leaf area at 21/35 DAT and flowering", "Independent validation"],
+       ["Marpaung et al. (2024)", "Karangploso (Malang), East Java; DS 2023", "Inpari-32",
+        "0 (unfertilised) vs 50, 100, 150 kg N ha⁻¹ (× PGPR)",
+        "Grain; leaf area, tillers, biomass at 14/28/42/56 DAT; tissue N", "Independent validation (same variety)"]],
       widths=[3.0, 3.0, 1.8, 2.8, 4.0, 2.0],
       note="DS, dry season; WS, wet season; DAT, days after transplanting; AGB, above-ground biomass; LTFE, long-term fertility experiment (since 1994).")
 
 H("2.3. Weather and soil", 2)
-P("Daily weather was taken from Open-Meteo (ERA5-based reanalysis; Hersbach et al., 2020) at each site; NASA POWER was "
+P("Daily weather was taken from Open-Meteo (ERA5-based reanalysis; Hersbach et al., 2020) at each site, with daily rainfall capped at the PCSE input limit of 250 mm (one day at Karangploso); NASA POWER was "
   "used as an alternative source to quantify weather uncertainty " + C("vanwart2013", "bai2010") + ". Soils were parameterised as clayey paddy soils "
   "(field capacity 0.42, wilting point 0.22 m³ m⁻³) with a 5 cm surface storage.")
 
@@ -417,7 +433,15 @@ P("Internal evaluation used leave-one-dose-out (LODO) cross-validation: each N r
   "principle (Dobermann et al., 2003b), followed by prediction of the 140-N yield and of the 0-N/140-N ratios of LAI and "
   "biomass. Inpari-33 phenology (107 days after sowing versus 120 for Inpari-32) was represented by scaling TSUM1 and "
   "TSUM2 so that simulated duration matched the variety description. Transfer to the farmers' fields of the 2016 "
-  "experiments (126 kg N ha⁻¹) was also tested.")
+  "experiments (126 kg N ha⁻¹) was also tested. A second independent dataset became available for Inpari-32 itself: "
+  "an N-rate trial (0, 50, 100, 150 kg N ha⁻¹) at Karangploso, East Java (≈500 m elevation), DS 2023 "
+  + C("marpaung2024") + ", with leaf area, tillers and biomass at 14–56 DAT read directly from the published tables "
+  "(no digitising). The same stage-B protocol was applied without any phenological adjustment: NSOILBASE was estimated "
+  "from the 0-N yield alone and the yield response and the 0-N/100-N ratios of LAI and biomass were then predicted "
+  "blind. Two confounders are noted: the control received no P, K or PGPR, and all fertilised plots received PGPR "
+  "(differences among PGPR concentrations were not significant for almost all variables), so part of the yield response "
+  "to the first 50 kg N ha⁻¹ includes P, K and PGPR effects; the unreported transplanting date and fertiliser "
+  "timing were assumed and varied (±14 days; alternative splits).")
 
 H("2.9. Uncertainty and sensitivity", 2)
 P("Parameter uncertainty was quantified by staged Bayesian inference with the affine-invariant ensemble sampler "
@@ -434,7 +458,9 @@ P("Parameter uncertainty was quantified by staged Bayesian inference with the af
   + C("gelman1992") + ", with a burn-in of max(100, 5τ). Sixty-four posterior draws were propagated to the LTFE, and "
   "predictive skill was scored with the continuous ranked probability score (CRPS) and 95% interval coverage "
   + C("gneiting2007") + ". Robustness to the observation model was tested by recalibrating with the ratio errors halved, "
-  "doubled, or without ratio data. Global sensitivity of grain yield "
+  "doubled, or without ratio data. The posterior of the extension was additionally propagated to the Karangploso trial "
+  "(64 draws, NSOILBASE re-estimated from the 0-N yield per draw) and then updated with its three LAI ratios by "
+  "importance sampling (sequential Bayesian updating), which narrows the NLEAF interval without re-running the chain. Global sensitivity of grain yield "
   "and maximum LAI to 11 parameters was quantified with Sobol indices (Sobol', 2001; Saltelli, 2002) as implemented in "
   "SALib (Herman and Usher, 2017; N = 128, bootstrap confidence intervals) at 23 and 207 kg N ha⁻¹. Weather uncertainty "
   "was assessed by repeating key simulations with NASA POWER, and variety uncertainty by eight variants of phenology "
@@ -586,6 +612,44 @@ TABLE("Table 4. Independent evaluation against LTFE omission plots (blind predic
        ["Biomass ratio, 35 / 60 DAT", f"{f2(o22['rDM35'])} / {f2(o22['rDM60'])}", f"{f2(A['std']['S2022']['rDM35'])} / {f2(A['std']['S2022']['rDM60'])}",
         f"{f2(A['ext']['S2022']['rDM35'])} / {f2(A['ext']['S2022']['rDM60'])}", "–", "–", "–"]],
       widths=[4.2, 2.0, 1.8, 2.0, 2.0, 1.8, 2.0], fs=8)
+P(f"The Karangploso N-rate trial on Inpari-32 itself confirmed this picture on an independent site, season and "
+  f"soil (Table 5). With TSUM unchanged (same variety), simulated maturity was {MAR['ext']['DOM_0N']:.0f} DAT against "
+  "the reported 120 DAT. NSOILBASE estimated from the unfertilised plot was "
+  f"{MAR['std']['NSOILBASE_fit']:.0f} (standard) and {MAR['ext']['NSOILBASE_fit']:.0f} kg N ha⁻¹ (extension), "
+  f"below the Sukamandi values ({f1(ps['NSOILBASE'])}–{f1(pe['NSOILBASE'])} kg N ha⁻¹), as expected for a "
+  "different soil. The observed 0-N/100-N LAI ratio fell to "
+  f"{_mo['rLAI']['42']:.2f} at 42 DAT, whereas the standard model again predicted almost no leaf-area response "
+  f"({MAR['std']['rLAI']['42']:.2f}–{MAR['std']['rLAI']['28']:.2f}); the extension, blind, gave "
+  f"{MAR['ext']['rLAI']['56']:.2f}–{MAR['ext']['rLAI']['28']:.2f} (RMSE {mar_rmse['ext']:.2f} versus "
+  f"{mar_rmse['std']:.2f}; posterior-mean CRPS {MAR['ext']['prediksi_posterior']['crps_rasio_LAI_rata2']:.3f} versus "
+  f"{MAR['std']['prediksi_posterior']['crps_rasio_LAI_rata2']:.3f}). Both models under-predicted the yield response to "
+  f"the first 50 kg N ha⁻¹ ({MAR['std']['rY']['50']:.2f} against {_mo['rY']['50']:.2f} observed), which is "
+  "expected because the unfertilised control also lacked P, K and PGPR (Section 2.8), so the observed response is not "
+  "an N response alone. Two independent observations support the conserved-leaf-N strategy directly: tissue N of the "
+  f"unfertilised plants was {mar_nj0:.2f}% against {mar_njF:.2f}% in fertilised plants (a {100 * (1 - mar_nj0 / mar_njF):.0f}% "
+  f"reduction, while leaf area at 56 DAT fell by {100 * (1 - _mo['rLAI']['56']):.0f}%), and the leaf-area reduction was "
+  f"almost entirely a tiller-number effect (tiller ratio {mar_rtil:.2f}; leaf area per tiller ratio {mar_rlpt:.2f}), "
+  "the extreme of the plasticity hierarchy seen in the LTFE (Section 3.6).")
+TABLE("Table 5. Blind prediction of the second independent dataset: N-rate trial on Inpari-32, Karangploso, DS 2023 "
+      "(Marpaung et al., 2024). NSOILBASE fitted on the 0-N yield only; all ratios predicted blind (dose means over "
+      "PGPR concentrations).",
+      ["Quantity", "Observed", "8.1", "8.1+NLEAF"],
+      [["Yield ratio 50N/0N", f2(_mo["rY"]["50"]), f2(MAR["std"]["rY"]["50"]), f2(MAR["ext"]["rY"]["50"])],
+       ["Yield ratio 100N/0N", f2(_mo["rY"]["100"]), f2(MAR["std"]["rY"]["100"]), f2(MAR["ext"]["rY"]["100"])],
+       ["Yield ratio 150N/0N", f2(_mo["rY"]["150"]), f2(MAR["std"]["rY"]["150"]), f2(MAR["ext"]["rY"]["150"])],
+       ["LAI ratio 0N/100N, 28 DAT", f2(_mo["rLAI"]["28"]), f2(MAR["std"]["rLAI"]["28"]), f2(MAR["ext"]["rLAI"]["28"])],
+       ["LAI ratio 0N/100N, 42 DAT", f2(_mo["rLAI"]["42"]), f2(MAR["std"]["rLAI"]["42"]), f2(MAR["ext"]["rLAI"]["42"])],
+       ["LAI ratio 0N/100N, 56 DAT", f2(_mo["rLAI"]["56"]), f2(MAR["std"]["rLAI"]["56"]), f2(MAR["ext"]["rLAI"]["56"])],
+       ["Biomass ratio 0N/100N, 28/42/56 DAT", f"{f2(_mo['rDM']['28'])} / {f2(_mo['rDM']['42'])} / {f2(_mo['rDM']['56'])}",
+        f"{f2(MAR['std']['rDM']['28'])} / {f2(MAR['std']['rDM']['42'])} / {f2(MAR['std']['rDM']['56'])}",
+        f"{f2(MAR['ext']['rDM']['28'])} / {f2(MAR['ext']['rDM']['42'])} / {f2(MAR['ext']['rDM']['56'])}"],
+       ["NSOILBASE from 0-N plot (kg N ha⁻¹)", "–", f1(MAR["std"]["NSOILBASE_fit"]), f1(MAR["ext"]["NSOILBASE_fit"])],
+       ["Maturity (DAT; reported 120)", "120", f0(MAR["std"]["DOM_0N"]), f0(MAR["ext"]["DOM_0N"])]],
+      widths=[4.6, 3.2, 2.6, 2.8], fs=8,
+      note="Confounders: the control received no P, K or PGPR and all fertilised plots received PGPR, so the observed "
+           "yield response includes non-N effects; LAI from leaf area per hill (16 hills m⁻²); dry matter from "
+           "grain at 14% moisture × 0.86. Results were robust to the assumed transplanting date (±14 d) and "
+           "fertiliser split (Section 2.8).")
 P(f"At the three farmers' fields of 2016, the Sukamandi N supply led to yield underestimates of "
   f"{abs(TR['subang']['err_126N_pct']):.0f}% (Subang) and {abs(TR['indramayu']['err_126N_pct']):.0f}% (Indramayu), "
   f"whereas N-saturated runs were within {abs(TR['subang']['err_jenuh_pct']):.1f}% and "
@@ -604,7 +668,9 @@ P(f"All stages converged (Table S4). Stage 1 (production parameters, 1000 steps)
   f"Stage 1 constrained SPAN to {ci('tahap1', 'SPAN')} d and AMAXTB@y to {ci('tahap1', 'AMAXTB@y', f2)}. "
   f"With the bound removed, NSOILBASE had a 95% interval of {ci('std', 'NSOILBASE')} kg N ha⁻¹ and N recovery of "
   f"{ci('std', 'N_recovery', f2)} in the standard model, and the two were negatively correlated (r = {rhoNS:.2f}); NLEAF "
-  f"was {ci('ext', 'NLEAF', f2)} (Table 2). For the independent LTFE data, the staged posterior of the extension covered "
+  f"was {ci('ext', 'NLEAF', f2)} (Table 2); sequential updating with the three Karangploso LAI ratios narrowed it to "
+  f"{MARU['NLEAF_sesudah'][1]:.2f} [{MARU['NLEAF_sesudah'][0]:.2f}, {MARU['NLEAF_sesudah'][2]:.2f}] "
+  f"(importance sampling, effective sample size {MARU['ESS']:.0f}). For the independent LTFE data, the staged posterior of the extension covered "
   f"{100 * POST['ext']['cakupan_95']:.0f}% of the observations within its 95% intervals (standard model "
   f"{100 * POST['std']['cakupan_95']:.0f}%), and the mean CRPS of the LAI ratios was {POST['ext']['crps_rasio_LAI_rata2']:.3f} "
   f"versus {POST['std']['crps_rasio_LAI_rata2']:.3f}. Halving or doubling the ratio errors, or omitting the ratio data, "
@@ -634,7 +700,7 @@ d22, d20 = dek[("S2022", "60")], dek[("S2020", "FL")]
 P(f"Tiller number explained only {100 * d22['porsi_anakan']:.0f}% (DS 2022, 60 DAT) and {100 * d20['porsi_anakan']:.0f}% "
   f"(2020, flowering) of the log-reduction of LAI in the 0-N plots; the remainder came from a smaller leaf area per tiller "
   f"(ratios {d22['rasio_luas_per_anakan']:.2f} and {d20['rasio_luas_per_anakan']:.2f}), i.e. fewer, shorter or narrower "
-  f"and thicker leaves (Table 5). Early in the season (2020, 35 DAT) the tiller contribution was larger "
+  f"and thicker leaves (Table 6). Early in the season (2020, 35 DAT) the tiller contribution was larger "
   f"({100 * dek[('S2020', '35')]['porsi_anakan']:.0f}%). Leaf greenness was reduced by only {spad_red[0]:.0f}% at 35 DAT and "
   f"{spad_red[1]:.0f}% at flowering while LAI was reduced by {lai_red_obs[2]:.0f}% and {lai_red_obs[3]:.0f}%, and the biomass per "
   f"unit leaf area of the 0-N crop was {bpl[('S2022', '35')]:.2f} and {bpl[('S2022', '60')]:.2f} times that of the 140-N crop "
@@ -651,7 +717,7 @@ P(f"The standard model did the opposite: it kept LAI nearly unchanged (ratios {s
   f"the residual factor ({inter['S2022']['rasio_hasil_per_intersepsi']:.2f}) reflects lower radiation-use efficiency and sink "
   f"size. In 2020 the yield ratio ({inter['S2020']['rasio_hasil']:.2f}) exceeded the interception ratio "
   f"({inter['S2020']['rasio_intersepsi']:.2f}), consistent with the under-performing NPK plot of that season.")
-TABLE("Table 5. Mechanistic diagnosis of the 0-N/140-N contrast in the LTFE (observed vs simulated ratios).",
+TABLE("Table 6. Mechanistic diagnosis of the 0-N/140-N contrast in the LTFE (observed vs simulated ratios).",
       ["Quantity", "DS 2022, 60 DAT obs.", "8.1", "8.1+NLEAF", "2020, flowering obs.", "8.1", "8.1+NLEAF"],
       [["LAI ratio", f2(d22["rasio_LAI"]), f2(strat[("S2022", "std", "60")]["sim_rasio_LAI"]), f2(strat[("S2022", "ext", "60")]["sim_rasio_LAI"]),
         f2(d20["rasio_LAI"]), f2(strat[("S2020", "std", "FL")]["sim_rasio_LAI"]), f2(strat[("S2020", "ext", "FL")]["sim_rasio_LAI"])],
@@ -781,6 +847,10 @@ P("Indigenous N supply in flooded rice is the sum of net mineralisation of soil 
   "identifiability because it depends on when N deficiency starts, which is governed mainly by indigenous supply; "
   "omission plots and early canopy measurements are therefore complementary rather than redundant.")
 
+P(f"The Karangploso trial adds a spatial data point: the indigenous supply inferred there "
+  f"({MAR['std']['NSOILBASE_fit']:.0f}–{MAR['ext']['NSOILBASE_fit']:.0f} kg N ha⁻¹) differs from the "
+  "Sukamandi value by 10–20%, consistent with the view that NSOILBASE is a stable property of a field rather than "
+  "of a region, and must be re-estimated locally — which a single omission plot suffices to do.")
 H("4.5. Sensitivity reflects the N economy of grain filling", 2)
 P("At low N, grain yield was most sensitive to leaf life span (SPAN) and to the maximum grain N concentration (NMAXSO). "
   "Both act through the same mechanism: grain filling requires N that, once soil supply is exhausted, must be remobilised "
@@ -804,12 +874,15 @@ P("Gridded weather products differ from station records, and these differences p
 H("4.7. Limitations", 2)
 P(f"Although the MCMC chains converged for all stages (split-R̂ ≤ {max(DG['ext']['rhat'].values()):.2f} for the extension; "
   f"Section 3.5, Table S4), the posterior of NLEAF remains wide ({ci('ext', 'NLEAF', f2)}) because NLEAF, NSOILBASE "
-  "and N recovery trade off along a ridge of similar likelihood; a larger N-rate dataset, or an independent measurement "
-  "of the indigenous N supply, would be needed to narrow it. The point estimate and the qualitative conclusion, that the "
+  "and N recovery trade off along a ridge of similar likelihood; updating with the Karangploso LAI ratios narrowed it "
+  f"to {MARU['NLEAF_sesudah'][1]:.2f} [{MARU['NLEAF_sesudah'][0]:.2f}, {MARU['NLEAF_sesudah'][2]:.2f}] (Section 3.5), and "
+  "a larger N-rate dataset, or an independent measurement of the indigenous N supply, would narrow it further. The point estimate and the qualitative conclusion, that the "
   "extension improves the independent leaf-area response, do not depend on this width: they are also supported by the "
   "leave-one-dose-out cross-validation, the blind LTFE prediction and the observation-model robustness check (Table S3). All data are secondary, several were digitised from figures, and no transplanting date was reported; the effects of "
-  "these assumptions were quantified but cannot be eliminated. The independent validation used Inpari-33 rather than "
-  "Inpari-32, although results were robust to eight variety assumptions. SPAD was available only for 2020 and is a proxy "
+  "these assumptions were quantified but cannot be eliminated. The LTFE validation used Inpari-33 rather than "
+  "Inpari-32, although results were robust to eight variety assumptions, and the second validation used Inpari-32 "
+  "itself; its control, however, lacked P, K and PGPR, so only its leaf-area and biomass ratios, not its yield "
+  "response, are a clean test of the N module. SPAD was available only for 2020 and is a proxy "
   "rather than a measurement of leaf N per area. The NLEAF extension was supported by independent data but rests on three "
   "datasets from one station and should be tested across sites and varieties. Post-anthesis partitioning tables were not "
   "calibrated, which limits stem and harvest-index predictions, and phenology parameters were fixed in the Bayesian "
@@ -898,10 +971,6 @@ REFS = [
     ("Susanti, Z., Hikmah, Z.M., Sastro, Y., Sasmita, P., Sembiring, H., 2023. The combined application of organic and "
      "inorganic fertilizers to improve fertility of degraded soil and sustainable yield in intensive irrigated rice systems. "
      "IOP Conf. Ser.: Earth Environ. Sci. 1165, 012026. https://doi.org/10.1088/1755-1315/1165/1/012026", False),
-    ("ter Braak, C.J.F., 2006. A Markov Chain Monte Carlo version of the genetic algorithm Differential Evolution: "
-     "easy Bayesian computing for real parameter spaces. Stat. Comput. 16, 239–249. https://doi.org/10.1007/s11222-006-8769-1", False),
-    ("ter Braak, C.J.F., Vrugt, J.A., 2008. Differential Evolution Markov Chain with snooker updater and fewer chains. "
-     "Stat. Comput. 18, 435–446. https://doi.org/10.1007/s11222-008-9104-9", False),
     ("van Diepen, C.A., Wolf, J., van Keulen, H., Rappoldt, C., 1989. WOFOST: a simulation model of crop production. "
      "Soil Use Manage. 5, 16–24.", False),
     ("van Ittersum, M.K., Cassman, K.G., Grassini, P., Wolf, J., Tittonell, P., Hochman, Z., 2013. Yield gap analysis with "
