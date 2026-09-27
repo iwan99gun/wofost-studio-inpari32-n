@@ -55,6 +55,7 @@ nni = {(r["dosis"], r["HST"]): r["NNI"] for r in VAR["nni_awal"]}
 # ------------------------------------------------------------------ dokumen
 # Mode: "kirim" (naskah untuk jurnal: 1 kolom, spasi 1,5, nomor baris) atau "baca" (tata letak artikel: 2 kolom)
 BACA = "baca" in sys.argv[1:]
+FINAL = "final" in sys.argv[1:]
 from docx.enum.section import WD_SECTION
 doc = Document()
 st = doc.styles["Normal"]; st.font.name = "Times New Roman"; st.font.size = Pt(9.5 if BACA else 11)
@@ -176,18 +177,19 @@ def TABLE(caption, header, rows, widths=None, note=None, fs=8.5):
 
 
 # ================================================================== halaman judul
-P("DRAFT manuscript generated from WOFOST Studio results on " + dt.date.today().strftime("%d %B %Y")
-  + ". Text highlighted in yellow must be verified or completed by the authors before submission.", italic=True, size=9, verify=True)
-P("Target journal: European Journal of Agronomy (alternatives: Agricultural Systems; Environmental Modelling & Software).", italic=True, size=9)
+if not FINAL:
+    P("DRAFT manuscript generated from WOFOST Studio results on " + dt.date.today().strftime("%d %B %Y")
+      + ". Text highlighted in yellow must be verified or completed by the authors before submission.", italic=True, size=9, verify=True)
+    P("Target journal: European Journal of Agronomy (alternatives: Agricultural Systems; Environmental Modelling & Software).", italic=True, size=9)
 TITLE = ("Nitrogen-limited WOFOST 8.1 for tropical transplanted rice: parameter-consistency fixes, a leaf-level "
          "nitrogen extension and independent omission-plot validation in West Java, Indonesia")
 P(TITLE, bold=True, size=15, align=WD_ALIGN_PARAGRAPH.CENTER)
-P("Zainal Arifinᵃ*, Iwan Gunawanᵇ*", bold=True, size=11, align=WD_ALIGN_PARAGRAPH.CENTER)
+P("Zainal Arifinᵃ*, Iwan Gunawanᵇ", bold=True, size=11, align=WD_ALIGN_PARAGRAPH.CENTER)
 PR([("ᵃ ", ""), ("Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
 PR([("ᵇ ", ""), ("Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
 P("ORCID: Zainal Arifin https://orcid.org/0009-0008-0345-3167; Iwan Gunawan https://orcid.org/0000-0002-2784-4436",
   size=9, align=WD_ALIGN_PARAGRAPH.CENTER)
-P("* Corresponding authors: Zainal Arifin, zainal.arifin@staff.uns.ac.id; Iwan Gunawan, iwan99gun@unkhair.ac.id",
+P("* Corresponding author: Zainal Arifin, zainal.arifin@staff.uns.ac.id. Co-author e-mail: Iwan Gunawan, iwan99gun@unkhair.ac.id",
   size=9.5, align=WD_ALIGN_PARAGRAPH.CENTER)
 
 # ---- blok 1: pustaka terverifikasi, highlights, abstrak, pendahuluan (disisipkan ke buat_naskah.py) ----
@@ -250,28 +252,30 @@ for h in ("Three parameter-consistency problems were found in the default WOFOST
 
 H("Abstract")
 ABSTRACT = (
-    "Nitrogen (N)-limited crop models increasingly guide fertiliser management in tropical rice, but their implementations are "
-    "rarely tested for internal consistency or against independent N-omission data. We evaluated WOFOST 8.1 (PCSE 6.0.13) for "
-    "the Indonesian inbred rice Inpari-32 with literature-mined data from West Java. Potential-production parameters were "
-    "calibrated on three 2016 experiments and N parameters on an N-rate trial (23–207 kg N ha⁻¹); evaluation combined "
-    "staged Bayesian inference, cross-validation and blind prediction of two seasons of 0-N omission plots from a long-term "
-    "experiment. Three consistency problems were corrected: a recalibrated RGRLAI below RGRLAI_MIN inverted the juvenile "
-    "N-stress response, calibrated AMAXTB was ignored by the N-dependent photosynthesis, and N stress acted on leaf expansion "
-    "only in a juvenile window that closed before N deficiency developed. The corrected model reproduced grain yield at all "
+    "Nitrogen (N)-limited crop models increasingly guide fertiliser management in tropical rice, but are rarely tested for "
+    "internal consistency or against independent N-omission data. We evaluated WOFOST 8.1 for the Indonesian "
+    "rice Inpari-32 with published data from West Java. Potential-production parameters were calibrated on three 2016 "
+    "experiments and N parameters on an N-rate trial (23–207 kg N ha⁻¹); evaluation combined staged Bayesian inference, "
+    "cross-validation and blind prediction of two seasons of 0-N omission plots. Three consistency problems were corrected: "
+    "a recalibrated RGRLAI below RGRLAI_MIN inverted the juvenile N-stress response, calibrated AMAXTB was ignored by the "
+    "N-dependent photosynthesis, and N stress acted on leaf expansion only in a juvenile window that closed before deficiency "
+    "developed. The corrected model reproduced grain yield at all "
     f"N rates (error ≤{cal_err:.0f}%) and predicted independent 0-N yields within "
-    f"{max(abs(err0['std']['S2022']), abs(err0['std']['S2020'])):.1f}%; indigenous N supply inferred from the omission plots "
-    f"({f1(nsbB['S2022'])}–{f1(nsbB['S2020'])} kg N ha⁻¹) matched the calibrated value ({f1(ps['NSOILBASE'])} kg N ha⁻¹). "
-    f"Mechanistically, N-deficient rice kept leaf greenness (SPAD −{min(spad_red):.0f} to −{max(spad_red):.0f}%) while reducing "
+    f"{max(abs(err0['std']['S2022']), abs(err0['std']['S2020'])):.1f}%; indigenous N supply inferred from omission plots "
+    f"({f1(nsbB['S2022'])}–{f1(nsbB['S2020'])} kg N ha⁻¹) matched the calibrated value ({f1(ps['NSOILBASE'])}). "
+    f"N-deficient rice kept leaf greenness (SPAD −{min(spad_red):.0f} to −{max(spad_red):.0f}%) while reducing "
     f"leaf area by {min(lai_red_obs):.0f}–{max(lai_red_obs):.0f}%, mostly through smaller leaf area per tiller, whereas WOFOST 8.1 "
-    f"kept leaf area and diluted specific leaf N by {min(sln_red_std):.0f}–{max(sln_red_std):.0f}%. A one-parameter "
-    f"LINTUL3-type extension reversing this strategy reduced the error in the leaf-area response from {rm['std']:.2f} to "
-    f"{rm['ext']:.2f}, and blindly reproduced the leaf-area response of a second, independent N-rate trial on the same "
-    f"variety in East Java (ratio RMSE {mar_rmse['ext']:.2f} versus {mar_rmse['std']:.2f} for the standard model). Indigenous N supply was stable over five years but not transferable to farmers' fields. Enforcing "
-    "parameter consistency and representing leaf-area plasticity are prerequisites for simulating N responses of tropical rice.")
+    f"kept leaf area and diluted leaf N by {min(sln_red_std):.0f}–{max(sln_red_std):.0f}%. A one-parameter "
+    f"LINTUL3-type extension reversing this strategy cut the error of the leaf-area response from {rm['std']:.2f} to "
+    f"{rm['ext']:.2f} and blindly reproduced a second N-rate trial on the same variety "
+    f"(ratio RMSE {mar_rmse['ext']:.2f} versus {mar_rmse['std']:.2f}). Soil N supply was stable over five years but did not "
+    "transfer to farmers' fields. Parameter consistency and leaf-area plasticity are prerequisites "
+    "for simulating N responses of tropical rice.")
 P(ABSTRACT)
 N_ABS = len(ABSTRACT.split())
+assert N_ABS <= 246, f"abstrak {N_ABS} kata; batas Elsevier 250, sisakan margin untuk penghitung kata berbeda"
 PR([("Keywords: ", "b"), ("crop model; WOFOST; nitrogen nutrition index; leaf area plasticity; indigenous nitrogen supply; "
-                          "omission plot; Bayesian calibration; Oryza sativa", "")])
+                          "omission plot; Bayesian calibration", "")])
 if BACA:
     for par in doc.paragraphs[-2:-1]:
         pPr = par._p.get_or_add_pPr(); shd = OxmlElement("w:shd")
@@ -916,7 +920,7 @@ H("Acknowledgements")
 P("The authors thank the laboratory of the Department of Agribusiness, Vocational School, Universitas Sebelas Maret, and the laboratory of the Department of Mechanical Engineering, Universitas Khairun, for their support throughout the completion of this work.")
 
 H("Declaration of generative AI and AI-assisted technologies")
-P("During the preparation of this work the authors used Claude (Anthropic) to assist in developing the WOFOST Studio "
+P("During the preparation of this work the authors used generative AI tools to assist in developing the WOFOST Studio "
   "software and analysis scripts, and in drafting and editing the manuscript text. All model formulations, calibration "
   "choices and interpretations were directed and verified by the authors, and every numerical result reported here is "
   "generated by the openly archived scripts. After using this tool, the authors reviewed and edited the content as "
@@ -1061,9 +1065,11 @@ TABLE("Table S4. MCMC convergence diagnostics per stage (emcee ensemble sampler)
            "convergence. Stages 1 and 2 (std) used the affine-invariant stretch move; stage 2 (ext) used "
            "differential-evolution moves because of the NLEAF–NSOILBASE–N-recovery ridge (Section 2.9).")
 
-docx_path = OUT / ("draft_WOFOST81_Nrice_WestJava_versi_baca.docx" if BACA else "draft_WOFOST81_Nrice_WestJava.docx")
+docx_path = OUT / ("Manuscript_EJA.docx" if FINAL else ("draft_WOFOST81_Nrice_WestJava_versi_baca.docx" if BACA else "draft_WOFOST81_Nrice_WestJava.docx"))
 doc.save(docx_path)
 print("DOCX:", docx_path)
+if FINAL:
+    raise SystemExit(0)
 
 # ------------------------------------------------------------------ PDF via Microsoft Word
 try:
