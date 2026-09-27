@@ -77,7 +77,7 @@ Judul             :
 
 Penulis (URUTAN harus sama dengan halaman judul naskah):
   1. Zainal Arifin  (PENULIS KORESPONDENSI)
-     Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Indonesia
+     Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia
      zainal.arifin@staff.uns.ac.id   ORCID 0009-0008-0345-3167
   2. Iwan Gunawan
      Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia
@@ -94,7 +94,8 @@ Pernyataan ketersediaan data / kode ("Data statement"):
 
 Pernyataan konflik kepentingan: penulis tidak memiliki konflik kepentingan (lihat 05_Declaration_of_interest.docx).
 Pernyataan penggunaan AI generatif: sudah ada di naskah (bagian sebelum Referensi).
-Pendanaan: LIHAT CHECKLIST.txt (belum ditulis; harus Anda isi).
+Pendanaan (kolom "Funding"): tidak ada dana khusus. Kalimat di naskah:
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 """
 (PKG / "DATA_FORMULIR.txt").write_text(form, encoding="utf-8")
 
@@ -102,14 +103,11 @@ Pendanaan: LIHAT CHECKLIST.txt (belum ditulis; harus Anda isi).
 chk = """CHECKLIST UNGGAH - European Journal of Agronomy  (https://submit.elsevier.com/EURAGR)
 =====================================================================================
 YANG HARUS ANDA PUTUSKAN / ISI SEBELUM UNGGAH (saya tidak boleh menebaknya)
- [ ] PENDANAAN. Panduan Elsevier meminta pernyataan sumber dana. Naskah belum memuatnya. Kalau tidak ada dana khusus,
-     Elsevier menyarankan kalimat: "This research did not receive any specific grant from funding agencies in the
-     public, commercial, or not-for-profit sectors." Isi sesuai kenyataan, lalu minta saya menambahkannya ke naskah.
- [ ] ALAMAT POS AFILIASI. Panduan meminta nama lengkap dan alamat pos setiap afiliasi, termasuk negara.
-     Afiliasi Zainal Arifin sekarang hanya "...Universitas Sebelas Maret, Indonesia" (kota/kode pos belum ada).
-     Afiliasi Iwan Gunawan sudah punya kota dan kode pos (Ternate 97719).
- [ ] PENULIS KORESPONDENSI = orang yang login dan mengunggah. Sekarang naskah menyebut Zainal Arifin. Kalau yang
-     mengunggah Iwan Gunawan, minta saya ubah halaman judul + surat pengantar dulu. Tidak bisa diganti setelah diterima.
+ [x] Pendanaan: tidak ada dana khusus (kalimat standar Elsevier sudah ada di naskah, bagian "Funding").
+ [x] Afiliasi kedua penulis lengkap dengan kota dan negara (Surakarta; Ternate 97719).
+     Kalau Elsevier meminta alamat pos lengkap di formulir, isi kode pos kampus masing-masing.
+ [x] Penulis korespondensi = Zainal Arifin, dan HARUS dia yang login dan mengunggah (akun Elsevier atas nama dia).
+     Tidak bisa diganti setelah naskah diterima.
  [ ] Nama calon reviewer (opsional) di 04_Cover_letter.docx; editor biasanya meminta 3-5 nama + surel di formulir.
  [ ] Kedua penulis sudah membaca dan menyetujui naskah final.
 

@@ -51,7 +51,7 @@ P("We suggest reviewers with expertise in WOFOST/PCSE nitrogen modelling, rice n
 P("Thank you for considering our work.")
 P("Yours sincerely,")
 P("Zainal Arifin (corresponding author)\n"
-  "Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Indonesia\n"
+  "Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia\n"
   "zainal.arifin@staff.uns.ac.id\n"
   "on behalf of all authors, including Iwan Gunawan (Department of Mechanical Engineering, Universitas Khairun, "
   "Ternate 97719, Indonesia; iwan99gun@unkhair.ac.id)")

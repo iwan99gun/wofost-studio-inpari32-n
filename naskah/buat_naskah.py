@@ -185,7 +185,7 @@ TITLE = ("Nitrogen-limited WOFOST 8.1 for tropical transplanted rice: parameter-
          "nitrogen extension and independent omission-plot validation in West Java, Indonesia")
 P(TITLE, bold=True, size=15, align=WD_ALIGN_PARAGRAPH.CENTER)
 P("Zainal Arifinᵃ*, Iwan Gunawanᵇ", bold=True, size=11, align=WD_ALIGN_PARAGRAPH.CENTER)
-PR([("ᵃ ", ""), ("Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
+PR([("ᵃ ", ""), ("Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
 PR([("ᵇ ", ""), ("Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia", "")]).alignment = WD_ALIGN_PARAGRAPH.CENTER
 P("ORCID: Zainal Arifin https://orcid.org/0009-0008-0345-3167; Iwan Gunawan https://orcid.org/0000-0002-2784-4436",
   size=9, align=WD_ALIGN_PARAGRAPH.CENTER)
@@ -914,6 +914,8 @@ H("CRediT authorship contribution statement")
 P("Zainal Arifin: Investigation (literature search and reference compilation), Writing – original draft, Writing – review & editing. "
   "Iwan Gunawan: Software (development of WOFOST Studio and the nitrogen extension), Investigation (literature search and reference compilation), "
   "Writing – original draft, Writing – review & editing.")
+H("Funding")
+P("This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.")
 H("Declaration of competing interest")
 P("The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.")
 H("Acknowledgements")
