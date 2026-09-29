@@ -31,8 +31,8 @@ REVIEWERS = [
      "k.saito@cgiar.org", "rice agronomy, nutrient management and yield-gap analysis in irrigated rice"),
     ("Prof. Shaobing Peng", "Huazhong Agricultural University, Wuhan, China",
      "speng@mail.hzau.edu.cn", "rice nitrogen physiology, leaf nitrogen and nitrogen-use efficiency"),
-    ("Prof. Patricio Grassini", "University of Nebraska\u2013Lincoln, USA",
-     "pgrassini2@unl.edu", "crop modelling, yield potential and yield gaps of rice in Indonesia"),
+    ("Prof. Gerrit Hoogenboom", "University of Florida, Gainesville, USA",
+     "gerrit@ufl.edu", "development, calibration and evaluation of process-based crop models (DSSAT)"),
     ("Dr Heidi Webber", "Leibniz Centre for Agricultural Landscape Research (ZALF), M\u00fcncheberg, Germany",
      "webber@zalf.de", "evaluation and uncertainty of process-based crop models"),
 ]
@@ -109,7 +109,7 @@ Judul ({len(TITLE)} karakter; batas 90):
 {TITLE}
 
 Penulis (urutan sama dengan naskah):
-  1. Zainal Arifin  (PENULIS KORESPONDENSI - yang login dan mengunggah)
+  1. Zainal Arifin  (PENULIS KORESPONDENSI; yang mengunggah boleh Iwan sebagai submitting author)
      Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia
      zainal.arifin@staff.uns.ac.id   ORCID 0009-0008-0345-3167
   2. Iwan Gunawan
@@ -143,6 +143,13 @@ YANG HARUS DIPUTUSKAN / DILAKUKAN PENULIS SEBELUM UNGGAH
      sumber resmi (metadata paket PCSE, halaman University of Nebraska, dan alamat korespondensi di artikel terbit).
      Anda berdua yang memutuskan. Ganti siapa pun yang pernah bekerja sama dengan Anda atau yang Anda anggap tidak tepat.
      Syarat jurnal: 5 orang, negara dan institusi beragam, minimal 3 dari luar Indonesia.
+     Panduan Springer: reviewer harus "totally independent and not connected to the work in any way", dengan surel
+     institusi. Karena itu Patricio Grassini TIDAK diusulkan (ia rekan penulis sumber data Agustiani et al. 2018).
+     Allard de Wit adalah pengembang model yang diuji; ia tidak terkait dengan naskah ini, tetapi pertimbangkan sendiri.
+ [ ] SIAPA YANG MENGUNGGAH. Panduan Springer mengizinkan komunikasi selama submission didelegasikan ke "Contact or
+     Submitting Author" yang berbeda dari Corresponding Author, asal Corresponding Author jelas tertulis di naskah
+     (sudah: Zainal Arifin). Jadi Iwan boleh login dan mengunggah; di formulir penulis, tandai ZAINAL sebagai
+     corresponding author. Penulis korespondensi tidak bisa diganti setelah naskah diterima.
  [ ] ZENODO. Naskah merujuk DOI semua-versi 10.5281/zenodo.22969838. Arsip Zenodo yang ada (v1.0.0, 26 Sep) BELUM memuat
      skrip dan data terbaru (MCMC konvergen, validasi Karangploso, versi naskah ini). Unggah versi baru di Zenodo:
      buka rekam Zenodo -> "New version" -> unggah zip rilis v1.1.0 dari GitHub -> Publish. Tambahkan juga Zainal Arifin
