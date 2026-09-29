@@ -1,16 +1,17 @@
 # WOFOST Studio
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22969839.svg)](https://doi.org/10.5281/zenodo.22969839)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22969838.svg)](https://doi.org/10.5281/zenodo.22969838)
 
 A PySide6 desktop application wrapping [PCSE](https://github.com/ajwdewit/pcse) 6.0.13 / WOFOST for
 crop-model calibration, sensitivity analysis (Morris, Sobol, eFAST), Bayesian calibration (least squares
 and MCMC via `emcee`), ensemble Kalman filter data assimilation, climate-scenario runs, and
 journal-ready figure export.
 
-This repository accompanies the manuscript *"Nitrogen-limited WOFOST 8.1 for tropical transplanted
-rice: parameter-consistency fixes, a leaf-level nitrogen extension and independent omission-plot
-validation in West Java, Indonesia"* (manuscript in preparation; a repository/DOI badge will be added
-here once submitted).
+This repository accompanies the manuscript *"Leaf-area plasticity and indigenous nitrogen supply in
+nitrogen-limited WOFOST for rice"* (submitted). Archived releases on Zenodo: all versions
+[10.5281/zenodo.22969838](https://doi.org/10.5281/zenodo.22969838) (always resolves to the latest);
+v1.1.0 [10.5281/zenodo.23030159](https://doi.org/10.5281/zenodo.23030159);
+v1.0.0 [10.5281/zenodo.22969839](https://doi.org/10.5281/zenodo.22969839).
 
 ## What's in this repository
 
