@@ -56,6 +56,16 @@ nni = {(r["dosis"], r["HST"]): r["NNI"] for r in VAR["nni_awal"]}
 # Mode: "kirim" (naskah untuk jurnal: 1 kolom, spasi 1,5, nomor baris) atau "baca" (tata letak artikel: 2 kolom)
 BACA = "baca" in sys.argv[1:]
 FINAL = "final" in sys.argv[1:]
+NCA = "nca" in sys.argv[1:]          # versi Nutrient Cycling in Agroecosystems: blok ditangkap lalu dirakit nca_rakit.py
+BLOCKS = []
+
+
+class _Dummy:
+    """Pengganti objek paragraf pada mode NCA (menerima penetapan atribut apa pun)."""
+    def __getattr__(self, k):
+        d = _Dummy(); object.__setattr__(self, k, d); return d
+
+
 from docx.enum.section import WD_SECTION
 doc = Document()
 st = doc.styles["Normal"]; st.font.name = "Times New Roman"; st.font.size = Pt(9.5 if BACA else 11)
@@ -103,6 +113,8 @@ for tag, txt in (("begin", None), (None, "PAGE"), ("end", None)):
 
 
 def P(text, bold=False, italic=False, align=None, size=None, verify=False, style=None):
+    if NCA:
+        BLOCKS.append(("P", text)); return _Dummy()
     p = doc.add_paragraph(style=style)
     r = p.add_run(text); r.bold = bold; r.italic = italic
     if size:
@@ -116,6 +128,8 @@ def P(text, bold=False, italic=False, align=None, size=None, verify=False, style
 
 def PR(parts, style=None):
     """Paragraf dengan potongan [(teks, 'b'|'i'|'v'|'')]; 'v' = sorot kuning (perlu verifikasi)."""
+    if NCA:
+        BLOCKS.append(("P", "".join(t for t, _ in parts))); return _Dummy()
     p = doc.add_paragraph(style=style)
     for t, f in parts:
         r = p.add_run(t)
@@ -126,10 +140,14 @@ def PR(parts, style=None):
 
 
 def H(t, lvl=1):
+    if NCA:
+        BLOCKS.append(("H", t, lvl)); return
     doc.add_heading(t, level=lvl)
 
 
 def FIG(name, caption, width=None):
+    if NCA:
+        BLOCKS.append(("FIG", name, caption)); return
     if BACA:
         set_cols(1)
     doc.add_picture(str(G / f"{name}.png"), width=Cm(width or TEXT_W))
@@ -145,6 +163,8 @@ def FIG(name, caption, width=None):
 
 
 def TABLE(caption, header, rows, widths=None, note=None, fs=8.5):
+    if NCA:
+        BLOCKS.append(("TABLE", caption, header, rows, widths, note, fs)); return
     if BACA:
         set_cols(1)
         fs = min(fs, 8.0)
@@ -424,7 +444,7 @@ P(f"For point estimation, crop parameters from Step 1 were kept fixed; their unc
   "yield and AGB at maturity of Inpari-32 at the three N rates (weights 1/(CV·obs), CV 8.75% and 16.8%), and eight "
   "relative responses (23/115 and 207/115 ratios of leaf area and biomass at 28 DAT and flowering) derived from the "
   "dose main effects over six genotypes. Because the dose × genotype interaction was significant, ratio errors were "
-  "set conservatively to √2 × plot CV. Using ratios removes the bias in the absolute early LAI (Section 4.4) from the "
+  "set conservatively to √2 × plot CV. Using ratios removes the bias in the absolute early LAI (Section 4.3) from the "
   "N-response signal. The validation range of NSOILBASE in PCSE (0–100 kg N ha⁻¹) is an input check rather than a "
   "physiological limit and truncated the posterior, so it was widened to 0–400 kg N ha⁻¹. Because observation errors "
   "were fixed, −2 ln L equals the weighted sum of squares χ² plus a constant, and models were compared with "
@@ -456,7 +476,7 @@ P("Parameter uncertainty was quantified by staged Bayesian inference with the af
   "sampled them jointly with the N parameters (24 walkers; 800 steps for the standard model); uncertainty from Step 1 was thereby "
   "propagated to the N parameters and predictions. Because the extension posterior contains a ridge along which NLEAF, "
   "NSOILBASE and N recovery trade off (Section 4.2), the default stretch move mixed slowly for this stage; it was "
-  "therefore sampled with differential-evolution moves (80% DEMove, 20% snooker move; " + C("terbraak2006", "terbraak2008") + "), initialised overdispersed around the posterior of a preliminary 800-step run, and extended "
+  "therefore sampled with differential-evolution moves (80% DEMove, 20% snooker move; " + C("terbraak2006", "terbraak2008").strip("()") + "), initialised overdispersed around the posterior of a preliminary 800-step run, and extended "
   "in blocks of 100 steps until split-R̂ ≤ 1.05 and the chain exceeded 50τ (reached at 1200 steps). Convergence was assessed with the integrated autocorrelation time τ (a chain length "
   "above 50τ is recommended for emcee), the effective sample size and split-R̂ computed across walkers "
   + C("gelman1992") + ", with a burn-in of max(100, 5τ). Sixty-four posterior draws were propagated to the LTFE, and "
@@ -859,7 +879,7 @@ H("4.5. Sensitivity reflects the N economy of grain filling", 2)
 P("At low N, grain yield was most sensitive to leaf life span (SPAN) and to the maximum grain N concentration (NMAXSO). "
   "Both act through the same mechanism: grain filling requires N that, once soil supply is exhausted, must be remobilised "
   "from leaves, which accelerates leaf senescence and shortens the period of canopy photosynthesis – the "
-  "\"self-destruction\" of the canopy described by " + PUS["sinclair1975"]["cite"].replace(",", " (") + ") and documented "
+  "\"self-destruction\" of the canopy described by Sinclair and de Wit (1975) and documented "
   "for rice leaf N remobilisation " + C("mae1997") + ". A higher NMAXSO draws more N from the leaves, whereas a longer SPAN "
   "keeps them photosynthetically active; the two parameters therefore trade off and, at high N, SPAN dominates. Because "
   "NMAXSO was fixed from the literature, measuring grain N concentration at maturity would reduce a major uncertainty. "
@@ -887,9 +907,9 @@ P(f"Although the MCMC chains converged for all stages (split-R̂ ≤ {max(DG['ex
   "Inpari-32, although results were robust to eight variety assumptions, and the second validation used Inpari-32 "
   "itself; its control, however, lacked P, K and PGPR, so only its leaf-area and biomass ratios, not its yield "
   "response, are a clean test of the N module. SPAD was available only for 2020 and is a proxy "
-  "rather than a measurement of leaf N per area. The NLEAF extension was supported by independent data but rests on three "
-  "datasets from one station and should be tested across sites and varieties. Post-anthesis partitioning tables were not "
-  "calibrated, which limits stem and harvest-index predictions, and phenology parameters were fixed in the Bayesian "
+  "rather than a measurement of leaf N per area. The NLEAF extension was supported by independent data but rests on four "
+  "datasets from two sites and should be tested across more soils, sites and varieties. Post-anthesis partitioning was "
+  "calibrated only in a side analysis, which limits stem and harvest-index predictions, and phenology parameters were fixed in the Bayesian "
   "analysis because they were tightly constrained by the reported flowering dates. A dedicated field season with weekly green "
   "LAI and SPAD from 7 to 56 DAT, 0/60/120 kg N ha⁻¹ including an omission plot, grain N at maturity, recorded sowing "
   "and transplanting dates and on-site weather would address most of these limitations.")
@@ -932,7 +952,7 @@ P("During the preparation of this work the authors used generative AI tools to a
 H("References")
 REFS = [
     ("Agustiani, N., Deng, N., Edreira, J.I.R., Girsang, S.S., Syafruddin, Sitaresmi, T., Pasuquin, J.M.C., Agus, F., Grassini, P., 2018a. "
-     "Simulating rice and maize yield potential in the humid tropical environment of Indonesia. Eur. J. Agron. 101, 10–19. "
+     "Simulating rice and maize yield potential in the humid tropical environment of Indonesia. European Journal of Agronomy 101, 10–19. "
      "https://doi.org/10.1016/j.eja.2018.08.002", False),
     ("Agustiani, N., Sujinah, Hikmah, Z.M., 2018b. Kesesuaian cara tanam menurut elevasi pada ekosistem padi sawah irigasi "
      "[Conformity of planting method according to elevation in irrigated rice field]. Penelitian Pertanian Tanaman Pangan 2(3), 145–153. "
@@ -943,44 +963,44 @@ REFS = [
      "Lowland Rice. International Rice Research Institute, Los Baños.", False),
     ("Burnham, K.P., Anderson, D.R., 2002. Model Selection and Multimodel Inference, 2nd ed. Springer, New York.", False),
     ("Cassman, K.G., Dobermann, A., Walters, D.T., 2002. Agroecosystems, nitrogen-use efficiency, and nitrogen management. "
-     "Ambio 31, 132–140.", False),
+     "Ambio 31, 132–140. https://doi.org/10.1579/0044-7447-31.2.132", False),
     ("de Wit, A., Boogaard, H., Fumagalli, D., Janssen, S., Knapen, R., van Kraalingen, D., Supit, I., van der Wijngaart, R., "
-     "van Diepen, K., 2019. 25 years of the WOFOST cropping systems model. Agric. Syst. 168, 154–167. "
+     "van Diepen, K., 2019. 25 years of the WOFOST cropping systems model. Agricultural Systems 168, 154–167. "
      "https://doi.org/10.1016/j.agsy.2018.06.018", False),
     ("Dobermann, A., Witt, C., Abdulrachman, S., Gines, H.C., Nagarajan, R., Son, T.T., Tan, P.S., Wang, G.H., Chien, N.V., "
      "Thoa, V.T.K., Phung, C.V., Stalin, P., Muthukrishnan, P., Ravi, V., Babu, M., Simbahan, G.C., Adviento, M.A.A., 2003a. "
-     "Soil fertility and indigenous nutrient supply in irrigated rice domains of Asia. Agron. J. 95, 913–923. "
+     "Soil fertility and indigenous nutrient supply in irrigated rice domains of Asia. Agronomy Journal 95, 913–923. "
      "https://doi.org/10.2134/agronj2003.9130", False),
     ("Dobermann, A., Witt, C., Abdulrachman, S., Gines, H.C., Nagarajan, R., Son, T.T., Tan, P.S., Wang, G.H., Chien, N.V., "
      "Thoa, V.T.K., Phung, C.V., Stalin, P., Muthukrishnan, P., Ravi, V., Babu, M., Simbahan, G.C., Adviento, M.A.A., "
      "Bartolome, V., 2003b. Estimating indigenous nutrient supplies for site-specific nutrient management in irrigated rice. "
-     "Agron. J. 95, 924–935. https://doi.org/10.2134/agronj2003.9240", False),
-    ("Foreman-Mackey, D., Hogg, D.W., Lang, D., Goodman, J., 2013. emcee: the MCMC hammer. Publ. Astron. Soc. Pac. 125, 306–312.", False),
+     "Agronomy Journal 95, 924–935. https://doi.org/10.2134/agronj2003.9240", False),
+    ("Foreman-Mackey, D., Hogg, D.W., Lang, D., Goodman, J., 2013. emcee: the MCMC hammer. Publications of the Astronomical Society of the Pacific 125, 306–312. https://doi.org/10.1086/670067", False),
     ("Gastal, F., Lemaire, G., 2002. N uptake and distribution in crops: an agronomical and ecophysiological perspective. "
-     "J. Exp. Bot. 53, 789–799.", False),
-    ("Herman, J., Usher, W., 2017. SALib: an open-source Python library for sensitivity analysis. J. Open Source Softw. 2(9), 97.", False),
-    ("Hersbach, H., et al., 2020. The ERA5 global reanalysis. Q. J. R. Meteorol. Soc. 146, 1999–2049.", False),
+     "Journal of Experimental Botany 53, 789–799. https://doi.org/10.1093/jexbot/53.370.789", False),
+    ("Herman, J., Usher, W., 2017. SALib: an open-source Python library for sensitivity analysis. Journal of Open Source Software 2(9), 97. https://doi.org/10.21105/joss.00097", False),
+    ("Hersbach, H., Bell, B., Berrisford, P., et al., 2020. The ERA5 global reanalysis. Quarterly Journal of the Royal Meteorological Society 146, 1999–2049. https://doi.org/10.1002/qj.3803", False),
     ("Hikmah, Z.M., Sulistyono, E., Susanti, Z., 2021. Pertumbuhan, hasil dan efisiensi pemakaian air padi Inpari 33 pada "
      "perlakuan pupuk anorganik dan organik [Growth, yield and water use efficiency of Inpari 33 rice to inorganic and organic "
-     "fertilizer treatments]. J. Agron. Indonesia 49(3), 242–250. https://doi.org/10.24831/jai.v49i3.38323", False),
+     "fertilizer treatments]. Jurnal Agronomi Indonesia 49(3), 242–250. https://doi.org/10.24831/jai.v49i3.38323", False),
     ("Lemaire, G., Jeuffroy, M.-H., Gastal, F., 2008. Diagnosis tool for plant and crop N status in vegetative stage: theory "
-     "and practices for crop N management. Eur. J. Agron. 28, 614–624.", False),
-    ("Saltelli, A., 2002. Making best use of model evaluations to compute sensitivity indices. Comput. Phys. Commun. 145, 280–297.", False),
+     "and practices for crop N management. European Journal of Agronomy 28, 614–624. https://doi.org/10.1016/j.eja.2008.01.005", False),
+    ("Saltelli, A., 2002. Making best use of model evaluations to compute sensitivity indices. Computer Physics Communications 145, 280–297. https://doi.org/10.1016/s0010-4655(02)00280-1", False),
     ("Shibu, M.E., Leffelaar, P.A., van Keulen, H., Aggarwal, P.K., 2010. LINTUL3, a simulation model for nitrogen-limited "
-     "situations: application to rice. Eur. J. Agron. 32, 255–271. https://doi.org/10.1016/j.eja.2010.01.003", False),
+     "situations: application to rice. European Journal of Agronomy 32, 255–271. https://doi.org/10.1016/j.eja.2010.01.003", False),
     ("Sobol', I.M., 2001. Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates. "
-     "Math. Comput. Simul. 55, 271–280.", False),
+     "Mathematics and Computers in Simulation 55, 271–280. https://doi.org/10.1016/s0378-4754(00)00270-6", False),
     ("Sujinah, Hairmansis, A., Sasmita, P., Nugraha, Y., 2020. Hubungan fenologi pertumbuhan tanaman padi dengan hasil gabah, "
      "umur panen, biomasa, dan pengaruh pemupukan [Relationship between rice growth phenology with biomass, maturity, grain "
      "yield, and the effect of fertilization]. Penelitian Pertanian Tanaman Pangan 4(2), 63–71. "
      "https://doi.org/10.21082/jpptp.v4n2.2020.p63-71", False),
     ("Susanti, Z., Hikmah, Z.M., Sastro, Y., Sasmita, P., Sembiring, H., 2023. The combined application of organic and "
      "inorganic fertilizers to improve fertility of degraded soil and sustainable yield in intensive irrigated rice systems. "
-     "IOP Conf. Ser.: Earth Environ. Sci. 1165, 012026. https://doi.org/10.1088/1755-1315/1165/1/012026", False),
+     "IOP Conference Series: Earth and Environmental Science 1165, 012026. https://doi.org/10.1088/1755-1315/1165/1/012026", False),
     ("van Diepen, C.A., Wolf, J., van Keulen, H., Rappoldt, C., 1989. WOFOST: a simulation model of crop production. "
-     "Soil Use Manage. 5, 16–24.", False),
+     "Soil Use and Management 5, 16–24. https://doi.org/10.1111/j.1475-2743.1989.tb00755.x", False),
     ("van Ittersum, M.K., Cassman, K.G., Grassini, P., Wolf, J., Tittonell, P., Hochman, Z., 2013. Yield gap analysis with "
-     "local to global relevance—a review. Field Crops Res. 143, 4–17.", False),
+     "local to global relevance—a review. Field Crops Research 143, 4–17. https://doi.org/10.1016/j.fcr.2012.09.009", False),
     ("Wallach, D., Makowski, D., Jones, J.W., Brun, F., 2019. Working with Dynamic Crop Models, 3rd ed. Academic Press, London.", False),
 ]
 REFS = [(t, v) for t, v in REFS if not t.startswith("Berghuijs")]
@@ -1066,6 +1086,10 @@ TABLE("Table S4. MCMC convergence diagnostics per stage (emcee ensemble sampler)
            "ESS, effective sample size. A split-R̂ close to 1 and a chain length well above the autocorrelation time indicate "
            "convergence. Stages 1 and 2 (std) used the affine-invariant stretch move; stage 2 (ext) used "
            "differential-evolution moves because of the NLEAF–NSOILBASE–N-recovery ridge (Section 2.9).")
+
+if NCA:
+    exec(compile(open(OUT / "nca_rakit.py", encoding="utf-8").read(), str(OUT / "nca_rakit.py"), "exec"))
+    raise SystemExit(0)
 
 docx_path = OUT / ("Manuscript_EJA.docx" if FINAL else ("draft_WOFOST81_Nrice_WestJava_versi_baca.docx" if BACA else "draft_WOFOST81_Nrice_WestJava.docx"))
 doc.save(docx_path)

@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
 title: "WOFOST Studio: a PySide6 desktop application for PCSE-WOFOST calibration, sensitivity analysis, Bayesian calibration and nitrogen-response modelling of rice"
 type: software
-version: 1.0.0
-date-released: "2026-09-26"
+version: 1.1.0
+date-released: "2026-09-29"
 license: MIT
 repository-code: "https://github.com/iwan99gun/wofost-studio-inpari32-n"
 identifiers:
