@@ -11,9 +11,16 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 HERE = Path(__file__).resolve().parent
 NCA = HERE / "nca"
 PKG = HERE.parent / "SUBMISSION_NCA"
-if PKG.exists():
-    shutil.rmtree(PKG)
-(PKG / "Figures").mkdir(parents=True)
+(PKG / "Figures").mkdir(parents=True, exist_ok=True)   # tidak menghapus folder: berkas terbuka di penampil PDF membuat rmtree gagal setengah jalan
+LOCKED = []
+
+
+def safe_copy(src_, dst_):
+    """Salin dengan menimpa; jika berkas tujuan sedang dibuka program lain, catat dan lanjutkan."""
+    try:
+        shutil.copy(src_, dst_)
+    except PermissionError:
+        LOCKED.append(Path(dst_).name)
 
 src = Document(NCA / "NCA_Manuscript.docx")
 paras = [p.text for p in src.paragraphs]
@@ -90,17 +97,22 @@ P("Zainal Arifin (responsible corresponding author)\n"
 P("Iwan Gunawan (corresponding author)\n"
   "Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia\n"
   "iwan99gun@unkhair.ac.id")
-d.save(PKG / "03_Cover_letter.docx")
+try:
+    d.save(PKG / "03_Cover_letter.docx")
+except PermissionError:
+    LOCKED.append("03_Cover_letter.docx")
 
 # ---- berkas
-shutil.copy(NCA / "NCA_Manuscript.docx", PKG / "01_Manuscript.docx")
-shutil.copy(NCA / "NCA_Supplementary_Information.docx", PKG / "02_Supplementary_Information.docx")
+safe_copy(NCA / "NCA_Manuscript.docx", PKG / "01_Manuscript.docx")
+safe_copy(NCA / "NCA_Supplementary_Information.docx", PKG / "02_Supplementary_Information.docx")
 if (NCA / "NCA_Supplementary_Information.pdf").exists():
-    shutil.copy(NCA / "NCA_Supplementary_Information.pdf", PKG / "02_Supplementary_Information.pdf")
+    safe_copy(NCA / "NCA_Supplementary_Information.pdf", PKG / "02_Supplementary_Information.pdf")
 if (NCA / "NCA_Manuscript.pdf").exists():
-    shutil.copy(NCA / "NCA_Manuscript.pdf", PKG / "01_Manuscript_untuk_dibaca.pdf")
+    safe_copy(NCA / "NCA_Manuscript.pdf", PKG / "01_Manuscript_untuk_dibaca.pdf")
 for f in sorted((NCA / "Figures").glob("Fig*.*")):
-    shutil.copy(f, PKG / "Figures" / f.name)
+    safe_copy(f, PKG / "Figures" / f.name)
+if LOCKED:
+    print("PERINGATAN: berkas ini sedang dibuka program lain dan TIDAK diperbarui:", ", ".join(LOCKED))
 
 # ---- data formulir
 form = f"""DATA UNTUK FORMULIR SUBMISSION - Nutrient Cycling in Agroecosystems (salin-tempel)
