@@ -84,11 +84,12 @@ for i, (n, aff, em, ex) in enumerate(REVIEWERS, 1):
     P(f"{i}. {n}, {aff}; {em}. Expertise: {ex}.")
 P("Thank you for considering our work.")
 P("Yours sincerely,")
-P("Zainal Arifin (corresponding author)\n"
+P("Zainal Arifin (responsible corresponding author)\n"
   "Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia\n"
-  "zainal.arifin@staff.uns.ac.id\n"
-  "on behalf of both authors (Iwan Gunawan, Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, "
-  "Indonesia; iwan99gun@unkhair.ac.id)")
+  "zainal.arifin@staff.uns.ac.id")
+P("Iwan Gunawan (corresponding author)\n"
+  "Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia\n"
+  "iwan99gun@unkhair.ac.id")
 d.save(PKG / "03_Cover_letter.docx")
 
 # ---- berkas
@@ -109,10 +110,10 @@ Judul ({len(TITLE)} karakter; batas 90):
 {TITLE}
 
 Penulis (urutan sama dengan naskah):
-  1. Zainal Arifin  (PENULIS KORESPONDENSI; yang mengunggah boleh Iwan sebagai submitting author)
+  1. Zainal Arifin  (PENANGGUNG JAWAB UTAMA korespondensi: dipilih di dropdown "responsible corresponding author")
      Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia
      zainal.arifin@staff.uns.ac.id   ORCID 0009-0008-0345-3167
-  2. Iwan Gunawan
+  2. Iwan Gunawan  (penulis korespondensi TAMBAHAN: dicentang di "other corresponding authors"; juga yang mengunggah)
      Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia
      iwan99gun@unkhair.ac.id         ORCID 0000-0002-2784-4436
 
@@ -125,7 +126,12 @@ Kata kunci ({len(kw)}; batas 4-6):
 PERNYATAAN YANG DIISI DI FORMULIR (jurnal memakai isi formulir, bukan isi naskah, untuk versi terbit):
 Competing interests : The authors have no relevant financial or non-financial interests to disclose.
 Funding             : The authors declare that no funds, grants, or other support were received during the preparation of this manuscript.
-Author contributions: Both authors contributed to the study conception and design. The WOFOST Studio software, the nitrogen extension and the analysis scripts were developed by Iwan Gunawan. The literature search, data extraction and reference compilation were performed by Zainal Arifin and Iwan Gunawan. The first draft of the manuscript was written by both authors, and both authors commented on previous versions of the manuscript. Both authors read and approved the final manuscript.
+Author contributions: I.G. developed the WOFOST Studio software, the nitrogen extension and the analysis scripts. Z.A. and I.G. performed the literature search and reference compilation, wrote the manuscript and edited it. Both authors read and approved the final manuscript.
+   (Formulir Springer meminta inisial; pernyataan ini menggantikan yang ada di naskah dan itulah yang diterbitkan.)
+
+DATA INSTITUSI UNTUK LANGKAH "Affiliated institutions" (Save institution information untuk masing-masing):
+  1. Institution name: Universitas Sebelas Maret | country: Indonesia | city: Surakarta | details: Department of Agribusiness, Vocational School
+  2. Institution name: Universitas Khairun       | country: Indonesia | city: Ternate   | details: Department of Mechanical Engineering
 Data availability   : All datasets extracted from the literature, the model code, the analysis scripts and the simulation results that support the findings of this study are openly available in Zenodo at https://doi.org/10.5281/zenodo.22969838 and at https://github.com/iwan99gun/wofost-studio-inpari32-n (MIT licence).
 
 CALON REVIEWER (formulir meminta minimal 5 nama + kontak; sama dengan surat pengantar):

@@ -414,7 +414,8 @@ w_par(doc_m, TITLE_NCA, bold=True, size=14)
 w_par(doc_m, "Zainal Arifin¹ · Iwan Gunawan²")
 w_par(doc_m, "¹ Department of Agribusiness, Vocational School, Universitas Sebelas Maret, Surakarta, Indonesia")
 w_par(doc_m, "² Department of Mechanical Engineering, Universitas Khairun, Ternate 97719, Indonesia")
-w_par(doc_m, "Corresponding author: Zainal Arifin, zainal.arifin@staff.uns.ac.id")
+w_par(doc_m, "Corresponding authors: Zainal Arifin (responsible corresponding author), zainal.arifin@staff.uns.ac.id; "
+             "Iwan Gunawan, iwan99gun@unkhair.ac.id")
 w_par(doc_m, "ORCID: Zainal Arifin 0009-0008-0345-3167; Iwan Gunawan 0000-0002-2784-4436")
 doc_m.add_heading("Abstract", level=1); w_par(doc_m, T(ABSTRACT_NCA))
 p_ = doc_m.add_paragraph(); r_ = p_.add_run("Keywords "); r_.bold = True; p_.add_run(" · ".join(KEYWORDS_NCA))
@@ -454,11 +455,9 @@ doc_m.add_heading("Statements and Declarations", level=1)
 for hd, tx in (
     ("Funding", "The authors declare that no funds, grants, or other support were received during the preparation of this manuscript."),
     ("Competing interests", "The authors have no relevant financial or non-financial interests to disclose."),
-    ("Author contributions", "Both authors contributed to the study conception and design. The WOFOST Studio software, the "
-     "nitrogen extension and the analysis scripts were developed by Iwan Gunawan. The literature search, data extraction and "
-     "reference compilation were performed by Zainal Arifin and Iwan Gunawan. The first draft of the manuscript was written by "
-     "both authors, and both authors commented on previous versions of the manuscript. Both authors read and approved the "
-     "final manuscript."),
+    ("Author contributions", "I.G. developed the WOFOST Studio software, the nitrogen extension and the analysis scripts. "
+     "Z.A. and I.G. performed the literature search and reference compilation, wrote the manuscript and edited it. "
+     "Both authors read and approved the final manuscript."),
     ("Data availability", "All datasets extracted from the literature (with source, table or figure and extraction method for "
      "every value), the model code, the analysis scripts and the simulation results that support the findings of this study "
      "are openly available in Zenodo at https://doi.org/10.5281/zenodo.22969838 and at "
